@@ -1,0 +1,27 @@
+*{
+    background-color: palegoldenrod;
+    font-family: cursive;
+}
+
+.colors h3{
+    color: rgb(0,0,0);
+    font-weight: 300;
+    font-size: 16pt;
+    color: brown;
+}
+.colors h1{
+    color: #87cefa;
+    font-size: 1em;
+    font-weight: lighter;
+}
+.colors h2{
+    color: dimgray;
+    font-size: 1em;
+    font-weight: lighter;
+    /* lighter and bolder are relative to the parent */
+}
+.colors p{
+    color: rgb(033,30,40);
+    font-weight: lighter;
+    font-weight: 1em;
+}

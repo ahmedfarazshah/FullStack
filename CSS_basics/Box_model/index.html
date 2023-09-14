@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Box Model</title>
+  <style>
+    html{
+      margin: 0px;
+    }
+    body{
+      margin: 0px;
+    }
+    div{
+      width: 200px;
+      height: 200px;
+      margin: 0px;
+    }
+    #first{
+      background-color: cadetblue;
+      border: 10px solid black;
+      padding: 20px;
+      text-align: center;
+      text-decoration: line-through;
+    }
+    #first p{
+      margin: 0px;
+    }
+    #second{
+      background:gold;
+      border: 12px solid red;
+      border-width: 20px 10px;
+      margin-left: 260px;
+    }
+    #third{
+      background-color: indianred;
+      border: 10px double white;
+      margin-left: 42px;
+      /* there is a double border so that 2nd and the 3rd aren't connected */
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div id="first">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at sapien porttitor urna elementum lacinia. In
+      id magna pulvinar, ultricies lorem id, vehicula elit. Aliquam eu luctus nisl, vitae pellentesque magna. Phasellus
+      dolor metus, laoreet ac convallis sit amet, efficitur sed dolor.</p>
+  </div>
+  <div id="second"></div>
+  <div id="third"></div>
+
+</body>
+
+</html>
