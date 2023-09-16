@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+    position: static;
+}
+.main{
+    position: relative;
+}
+
+.name >h2{
+    margin: 0 0 0 0 ;
+    padding: 0px;
+    text-align: center;
+    position: relative;
+    top: 25px;
+}
+
+.pole{
+    width: 20px;
+    height: 554px;
+    background-color: black;
+    border-radius: 4px 4px 0 0 ;
+    position: relative;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.flag{
+    background-color: #CE1126;
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    z-index: 0;
+
+}
+.mid_rec{
+    background-color: #002868;
+    position: relative;
+    width: 500px;
+    height: 150px;
+    top: 75px;
+}
+.name{
+    background-color: white;
+    width: 100px;
+    height: 100px;
+    border-radius: 77px;
+    position: relative;
+    left: 200px;
+    top: 25px;
+}
+
+.stand{
+    background-color: darkgoldenrod;
+    width: 96px;
+    height: 28px;
+    position: relative;
+    top: 20px;
+
+}
+.stand2{
+    background-color: darkgoldenrod;
+    width: 140px;
+    height: 28px;
+    position: relative;
+    top: 20px;
+
+}
+.stand3{
+    background-color: darkgoldenrod;
+    width: 182px;
+    height: 28px;
+    position: relative;
+    top: 20px;
+
+
+}

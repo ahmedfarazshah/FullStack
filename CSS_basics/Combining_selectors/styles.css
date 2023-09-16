@@ -1,0 +1,42 @@
+/* combining chaining */
+ul li.done{
+    /* background-color: black; */
+    color: seagreen;    
+}
+/* chaining only = this is for specificity that you are selecting a paragraph with a class name done */
+p.done{
+    background-color: black;
+    color: palegoldenrod;
+    width: 96px;
+    height: 96px;
+    /* 1 inch box */
+}
+
+/* child  selector = this will only select the child or the rule will always be appiled to the child*/
+.box>p{
+    font-family: sans-serif;
+    color: grey;
+    text-transform: uppercase;
+    text-decoration: solid;
+    font-weight: lighter;
+}
+body > h1{
+    text-align: center;
+    text-decoration: underline;
+    font-style: italic;
+}
+
+/* grouping : this applies to the both of the selectors */
+
+li , h4{
+    background-color: greenyellow;
+    width: 96px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: lighter;
+}
+
+/* decendent selector */
+
+body h2 {
+    background-color: palegoldenrod;
+}
