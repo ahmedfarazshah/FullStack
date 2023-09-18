@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.red_box{
+    background-color: red;
+    width: 192px;
+    height: 192px;
+    display: inline-block;
+
+}
+.green>h2{
+    
+    margin: 0;
+    padding: 0;
+    /* display: inline-block; */
+}
+.green{
+    background-color: green;
+    display: inline-block;
+    height: 192px;
+    width: 192px;
+    margin: 0;
+
+}
+p{
+    /*   hence the inline elemnts have value and height respective to their content */
+    margin: 0px;
+    /* clear: both; */
+}
+.blue_box{
+    width: 192px;
+    height: 192px;
+    background-color: blue;
+    /* display: none; */
+    /* float: left; */
+    /* display: inline-block; */
+}
+body>div{
+     float: left;  /*         when you apply float to the all then it will take affect else if you do it to one it wont happen due to also the block property of the inline-block that we have set (for the paragraph element) */
+
+            /*  This also shows a peculier behaviour that the 2nd element didnot went down as we applied the float property*/
+}
