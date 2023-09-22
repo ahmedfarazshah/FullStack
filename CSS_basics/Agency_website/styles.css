@@ -1,0 +1,131 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    background-color: floralwhite;
+}
+
+nav h2{
+    margin: 30px;
+    font-size: 36px;
+    font-style: italic;
+    color: orange;
+    font-weight: bolder;
+}
+p{
+    width: 334px;
+}
+.main{
+    margin: 30px;
+}
+.main h1{
+    line-height: 55px;
+    font-weight: 900;
+    font-size: 40px;
+}
+span{
+    color: blue;
+}
+
+.inAir, .inAir2{
+    width: 40%;
+    display: inline-block;
+    text-align: start;
+    margin-top: 50px;
+
+}
+img{
+    margin: 0 20px 10px 0;
+    border-radius: 20px;
+
+}
+.inAir img{
+    width: 188px;
+    height: 150px;
+    float: left;
+
+}
+.inAir2 img{
+    width: 188px;
+    height: 150px;
+    float: left;
+}
+.inAir2{
+    margin-left: 150px;
+}
+.inAir div{
+    margin-left: 20px;
+}
+
+
+footer{
+    text-align: end;
+    margin: 10px 40px;
+    font-weight: 600;
+    clear: both;
+    color: dimgrey;
+    margin-top: 132px;
+}
+
+@media (min-width : 836px) and (max-width:996px){
+    h4{
+        display: inline;
+        width: 94px;
+    }
+}
+
+@media (min-width:512px)and (max-width:830px){
+    .inAir{display: block;    
+    }
+
+    .inAir2{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .inAir2 {
+        margin-top: 96px;
+    }
+    p,h4{
+        width: 500px;
+    }
+    img{
+        display: block;
+    }
+}
+                                        /* do remember the priority of the css rules that a class is prior than line or cascade code */
+@media (max-width:511px) {
+    body{
+        font-size: 12px;
+    }
+    .inAir{display: block;    
+    }
+    .main h1{
+        font-size: 2rem;
+    }
+
+    .inAir2{
+        display: block;
+        margin: 0;
+        padding: 0;
+    }
+    .inAir2 {
+        margin-top: 96px;
+    }
+    p,h4{
+        width: 300px;
+        font-size: 15px;
+    }
+    .inAir img{
+        display: inline-block;
+        width: 150px;
+        height: 150px;
+    }
+    .inAir2 img{    
+        display: inline-block;
+        width: 180px;
+        height: 130px;
+    }
+    footer{
+        margin-top: 80px;
+    }
+}
