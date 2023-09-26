@@ -2,6 +2,8 @@ body{
     margin: 0px;
     padding: 0px;
     background-color: floralwhite;
+    border: 12px double peachpuff;
+    border-radius: 4px;
 }
 
 nav h2{
@@ -63,7 +65,7 @@ footer{
     font-weight: 600;
     clear: both;
     color: dimgrey;
-    margin-top: 132px;
+    margin-top: 111px;
 }
 
 @media (min-width : 836px) and (max-width:996px){
@@ -96,6 +98,7 @@ footer{
 @media (max-width:511px) {
     body{
         font-size: 12px;
+        border: none;
     }
     .inAir{display: block;    
     }
@@ -126,6 +129,12 @@ footer{
         height: 130px;
     }
     footer{
-        margin-top: 80px;
+        margin-top: 65px;
+    }
+}
+
+@media (min-width: 510px)and (max-width:560px){
+    body{
+        border: none;
     }
 }

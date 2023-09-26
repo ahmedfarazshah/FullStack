@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Elements</title>
+    <style>
+        table{
+            width: 100%;
+            text-align: center;
+        }
+        table,th,td{
+            font-size: 16px;
+            border: 2px solid silver;
+            border-collapse: collapse;
+            padding: 6px;  
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h2>Simple Table (Colspan & Rowspan)</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>S #</th>
+                <th>Name</th>
+                <th colspan="2">Gender & Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>01</td>
+                <td>Jane</td>
+                <td>Female</td>
+                <td>Spain</td>
+            </tr>
+        <tbody>
+            <tr>
+                <td>02</td>
+                <td>Jin</td>
+                <td>Male</td>
+                <td>Japan</td>
+            </tr>
+        <tbody>
+            <tr>
+                <td>03</td>
+                <td>Ahmed</td>
+                <td>Male</td>
+                <td>Pakistan</td>
+            </tr>
+        <tbody>
+            <tr>
+                <td  rowspan="2">04</td>
+                <td>John</td>
+                <td colspan="2">Male & USA</td>
+            </tr>
+            <tr>
+                <td>Rohit</td>
+                <td colspan="2">Male & India</td>
+            </tr>
+        </tbody>
+    </table>    
+
+</body>
+</html>
