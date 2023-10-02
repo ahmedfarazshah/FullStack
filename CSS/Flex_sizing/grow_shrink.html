@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow_shrink</title>
+    <style>
+        .body{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            border: 2px solid black;
+            display: flex;
+            gap: 20px;
+        }
+        .container div{
+            flex-basis: 200px;
+            flex-grow: 0;
+            flex-shrink: 1;
+        }
+
+
+
+
+        .red{background-color: red; order: 0; }
+        #orange{background-color: orange; /* flex: 2; this will grow the ratio of orange flex item*/}
+        .yellow{background-color: yellow; order: 2;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="red">red</div>
+            <div id="orange">orange Lorem ipsum, dolor sit amet </div>
+            <div class="yellow">yellow Lorem, ipsum dolor.</div>
+            <div class="green">green</div>
+            <div class="blue">blue</div>
+        </div>
+
+
+</body>
+</html>

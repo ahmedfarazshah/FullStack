@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        .container{
+            font-size: 32px;
+            border: 2px solid black ;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            align-items: start;
+            align-content: start;
+            height: 70vh;
+        }
+
+
+
+        .red{background-color: red;order: 1;}
+        .orange{background-color: orange;order: 20;align-self: flex-end;}
+        .yellow{background-color: yellow;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+        .indigo{background-color: indigo;}
+        .violet{background-color: violet;}
+
+    </style>
+</head>
+<body>
+
+    <!-- remember roygbiv -->
+    <div class="container"> 
+        <div class="red">red</div>
+        <div class="orange">orange</div>
+        <div class="yellow">yellow</div>
+        <div class="green">green</div>
+        <div class="blue">blue</div>
+        <div class="indigo">indigo</div>
+        <div class="violet">violet</div>
+    </div>
+
+
+
+
+</body>
+</html>

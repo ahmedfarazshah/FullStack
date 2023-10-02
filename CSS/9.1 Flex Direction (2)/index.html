@@ -11,10 +11,10 @@
       color: white;
       border: 5px solid gold;
       display: inline-flex; /* will take width to the widest content in the child div's*/
-      flex-direction: column;
+      flex-direction: column; /* it is making the x-axis of the flex in the column direction */
     }
-    .container >*{  /* or I can also call all chilren using .container>*{}*/
-      flex-basis: 96px;
+    .container >*{
+      flex-basis: 88px;   /* it is dependent on the x-axis */
     }
 
     /*
@@ -42,7 +42,6 @@ children of the .container class.
     <div class="indigo">Indigo</div>
     <div class="purple">Purple</div>
   </div>
-  
 </body>
 
 </html>
