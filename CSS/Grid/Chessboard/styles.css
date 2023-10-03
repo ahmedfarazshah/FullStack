@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+    padding: 0;   
+}
+.container{
+    border: 2px solid black;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    /*even without the grid row it can word as i think that it takes the first whiole div in the entire 1st row*/
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    /* gap: 10px; */
+    width: 768px;
+}
+
+.white ,.black{
+    width: 96px;
+    height: 96px;
+}
+.white{background-color: #f0d9b5;}
+.black{background-color: #b58863 ;}

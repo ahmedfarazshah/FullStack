@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid</title>
+    <style>
+        .container {
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 10px;
+            width: fit-content;
+        }
+        .container div{
+            width: 96px;
+            height: 96px;
+        }
+
+        .red{background-color: red;}
+        .orange{background-color: orange;}
+        .yellow{background-color: yellow;}
+        .green{background-color: green;}
+        .blue{background-color: blue;}
+        .indigo{background-color: indigo;}
+        /* .violet{background-color: violet;} */
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="red"></div>
+        <div class="orange"></div>
+        <div class="yellow"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <div class="indigo"></div>
+        <!-- <div class="violet"></div> -->
+    </div>
+    
+
+</body>
+</html>
