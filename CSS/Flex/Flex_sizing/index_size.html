@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex_sizing</title>
+    <style>
+        .container{
+            border: 2px black solid;
+            display: flex;
+            gap: 10px;
+        }
+        .container div{
+            background-color: beige;
+            /* flex-basis: 300px; */
+            max-width: 100px;  /* how large items can grow to similar to flex basis but less value matters */
+            min-width: 100px; /* how small can items shrink to and it is irrespective of the size of screen above 300px*/
+        }
+        #item3{
+            min-width: 300px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container"> 
+        <div class="item1"><h2>Lorem, ipsum dolor.</h2></div>
+        <div class="item2"><h2>Lorem dolor</h2></div>
+        <div id="item3"><h2>Lorem</h2></div>
+        <div class="item4"><h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2></div>
+    </div>
+
+
+    
+</body>
+</html>
