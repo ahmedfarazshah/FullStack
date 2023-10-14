@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.container1{
+    font-family: cursive;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 96px;
+    grid-template-rows: 96px ;
+    grid-auto-rows: 48px;
+}
+.container1  div {
+    background-color: green;
+    border: 2px silver solid;
+    border-collapse: collapse;
+}
+/* means that it is not responsive for the px  */
+
+.container2{
+    grid-template-columns: 100px auto auto;
+    grid-template-rows: auto auto;
+}
+/* takes the full with and is responsive */
+
+.container3{
+    grid-template: 1fr  / 2fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr; /*if a new row is added to the slide*/
+}
+
+/* this means that the webpage is responsive and is best to use the fraction property */
+
+.container4{
+    grid-template-columns: 96px minmax(96px, 192px) minmax(48px, 192px);
+    grid-template-rows: 96px minmax(96px, 192px) minmax(48px, 92px);
+    grid-auto-rows: 96px;
+    /* there is no any benifit of adding minmax to a row as it is not responsive downwards */
+}
+
+.container4{
+    grid-template: repeat(2, 2fr) repeat(1, 1fr)/  repeat(2, 2fr) repeat(2, 4fr);
+    grid-auto-rows: 3fr;    
+    /* if a another row is added then it will be bigger than the first two or will be ratio of 3 ratio 1 */
+}
