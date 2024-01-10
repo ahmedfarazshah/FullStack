@@ -1,0 +1,7 @@
+hr{
+    margin: 100px;
+    width: 100px;
+    border: 10px blue dotted;
+    border-bottom: 0px
+    ;
+}
