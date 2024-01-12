@@ -1,3 +1,52 @@
+.main{
+    background-color: #DEFAF6;
+    color: #2EC1C1;
+    height: 90dvh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.sub{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 75dvh;
+    overflow: hidden;
+}
+.sub h1{
+    font-family: 'Cedarville Cursive', cursive;
+    font-weight: 700;
+    font-size: 77px;
+}
+
+.sub h2{
+    font-family: 'Montserrat', sans-serif; 
+}
+.name_ span{
+    text-decoration: underline;
+}
+.sub img{
+    height: 677px;
+}
+
+.cloud_top{
+    height: 180px;
+    position: absolute;
+    top: 86px;
+    right: 122px;
+}
+.cloud_bottom{
+    height: 180px;
+    position: absolute;
+    bottom:286px;
+    left: 122px;
+}
+
+
+
+
+
 hr{
     margin: 100px;
     width: 100px;
@@ -5,3 +54,9 @@ hr{
     border-bottom: 0px
     ;
 }
+
+
+/* Second Container */
+
+
+
