@@ -65,10 +65,11 @@ body h2{
 }
 
 .middle_container .profile img{
-    background-color: black;
     height: 130px;
     width: 130px;
-    border-radius: 100px;
+    border-radius: 100%;
+    overflow: clip;
+    overflow-clip-margin: content-box;
 }
 .middle_container > h2{
     margin-bottom: 100px;
@@ -106,7 +107,11 @@ body h2{
     margin: 0;
     padding: 0;
 }
-
+.skills > img{
+    width: 100%;
+    overflow: clip;
+    overflow-clip-margin: content-box;
+}
 
 /* Footer */
 
@@ -160,7 +165,7 @@ body p{
     text-align: center;
 }
 hr{
-    margin: 100px;
+    margin: 50px;
     width: 5%;
     border: 5px #EBF0F7 dotted;
     border-bottom: 0px;
