@@ -22,4 +22,5 @@ function test() {
 
 } 
 
-// Document.getElementsByClassName('click').onClick(test());
+
+// document.querySelector(button).onClick.innerHtml = 'changed';

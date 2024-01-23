@@ -18,5 +18,17 @@ alert(wordText);
 var essay = prompt("Write message, note that max limit is 180 characters");
 console.log(essay);
 
+// restricted to 180 characters
+
 var final = essay.slice(0, 180);
 alert(final);
+
+
+var varcheck = "This Is A String";
+console.log(varcheck);
+
+
+// In One line the slicing
+
+
+alert(prompt("Write your Tweet").slice(0,140));
