@@ -1,0 +1,13 @@
+body{
+    background-color: darkslategray;
+    border: 12px beige double;
+    /* display: flex; */
+    /* set the flex property and the width of the h2 will be behave as auto and uncomment h2 to see the reasult */
+}
+/* h2{ */
+    /* background-color: gold; */
+    /* flex: 0; */
+/* } */
+h2:hover {
+    cursor: none;
+}
