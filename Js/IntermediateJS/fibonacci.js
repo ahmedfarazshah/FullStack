@@ -5,7 +5,7 @@ function fibonacciSeries(n) {
         return output.slice(0, n);
     }else{// this indicates that the for loop can also be used without a increment;
         for (output.length; output.length < n;){ // or you can declare a variable and initialize the value from 3 or from the lenth of the array
-        output.push(output[output.length - 2] + output[output.length -1]);
+        output.push(output[output.length - 2] + output[output.length -1]); // as you can see form above that the increment is optional
         }          
     return output;
     }
