@@ -2,3 +2,8 @@ ul li a{
     text-decoration: none;
     color: darkblue;
 }
+
+
+.huge {
+    font-size: 10rem;
+}
