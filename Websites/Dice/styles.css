@@ -1,0 +1,40 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+    font-family: cursive;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100dvh;
+    /* background-color: darkblue; */
+}
+
+.dices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+}
+
+
+.player1, .player2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+    gap: 10px;
+}
+
+.box{
+    height: 260px;
+    width: 100%;
+    border-radius: 20px;
+    background-color: darkred;
+}
