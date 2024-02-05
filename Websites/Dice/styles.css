@@ -2,24 +2,29 @@ body{
     margin: 0;
     padding: 0;
     background-color: lightblue;
-    font-family: cursive;
 }
-
+h1{
+    font-family: 'Lobster', sans-serif;    
+    margin: 0;
+    font-size: 70px;
+    font-weight: lighter;
+}
 main{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
     height: 100dvh;
-    /* background-color: darkblue; */
 }
 
 .dices {
+    font-family: 'Cedarville Cursive', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 40px;
+
 }
 
 
@@ -36,5 +41,12 @@ main{
     height: 260px;
     width: 100%;
     border-radius: 20px;
-    background-color: darkred;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+
+footer{
+    font-family: 'Lobster', sans-serif;    
 }
