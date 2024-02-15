@@ -4,6 +4,7 @@ var newDiv = document.createElement("div")
 newDiv.style.width = "200px";
 newDiv.style.height = "200px";
 newDiv.style.backgroundColor = "red"
+newDiv.style.borderRadius = "20px"
 document.body.append(newDiv)
 
 
