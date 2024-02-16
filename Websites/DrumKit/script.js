@@ -1,6 +1,9 @@
 // alert("hey I have done css and html by myself")
-// event listerner is the method of EventTarget object
+
+// event listerner is the method of Event object and value of the target property/key 
 // just for the practice to add the event listener
+
+/*
 
 document.querySelector(".w").addEventListener("click", function(){alert("hey 'w' have got click")}); // the function needs to be written in the eventlistner function/ method
 document.querySelector(".a").addEventListener("click", function(){alert("hey 'a' have got click")});
@@ -9,11 +12,27 @@ document.querySelector(".d").addEventListener("click", function(){alert("hey 'd'
 document.querySelector(".j").addEventListener("click", function(){alert("hey 'j' have got click")});
 document.querySelector(".k").addEventListener("click", function(){alert("hey 'k' have got click")});
 document.querySelector(".l").addEventListener("click", function(){alert("hey 'l' have got click")});
+use a loop so that you can save time
 
-
-
-
-document.querySelector("h1").addEventListener("click", ifClicked) // if you add function parentheis the function gets called so we don't the ()
-function ifClicked(){
-    alert("New Click")
+*/
+var numOfDrums = document.querySelectorAll(".drum").length
+for(var i = 0; i < numOfDrums; i++){
+    document.querySelectorAll(".drum")[i].addEventListener('click', () => {
+        alert("a drum instrument got clicked")
+    })
 }
+
+// simply the while loop is long form of for loop or it used for checkbox until is clicked or a player is alive 
+/*
+var i = 0;
+while(i<7){
+    document.querySelectorAll(".drum")[i].addEventListener('click', () => {
+        alert("using the while loop")
+    })
+    i++;
+}
+setTimeout(() => {
+    console.log("time bomb started and don't exit the page")
+}, 3000);
+*/
+

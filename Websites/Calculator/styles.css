@@ -1,0 +1,87 @@
+body{
+    margin: 0;
+    padding: 0px;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 33px;
+    margin: 0;
+}
+
+.container{
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;    
+    height: 57%;
+    display: flex;
+    flex-direction: column;
+    width: 29%;
+    justify-content: space-around;
+    border: 2px solid beige;
+}
+pre{
+    width: 99%;
+    height: 30%;
+    outline: none;
+    border: 2px solid slategrey;
+    border-radius: 12px;
+}
+section{
+    height: 75%;
+    border: 2px solid beige;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.numberSection{
+    display: grid;
+    border: 2px silver solid;
+    width: 60%;
+    gap: 2px;
+    grid-template: 1fr 1fr 1fr 1fr/ 1fr 1fr 1fr;
+}
+.operandSection{
+    width: 15%;
+    border: 2px silver solid;
+
+}
+
+.container button{
+    width: 60px;
+    height: 45px;
+    font-size: 22px;
+    font-style: italic;
+    background-color: rgba(192, 192, 192, 0.759);
+    color: rgb(0, 0, 0);
+    outline-color: red;
+    text-align: center;
+    border: none;
+    border-radius: 6px ;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+    margin: 0;
+}
+

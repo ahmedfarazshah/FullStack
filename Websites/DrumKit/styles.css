@@ -7,9 +7,10 @@ body{
     justify-content: space-around;
     align-items: center;
     flex-wrap: nowrap;
-    background: linear-gradient(300deg, #00bfff, #ffd24cd0, #ef8172);
+    background: linear-gradient(150deg, #00bbff, #ffd24cd0, #ef8172);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
+    
 }
 
   
