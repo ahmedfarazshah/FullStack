@@ -13,6 +13,7 @@ function divide(num1, num2){
 function operation(num1, num2, operator){
     return operator(num1, num2)
 }
+var pre = document.querySelector("pre")
 
 zero  = document.querySelector(".zero")
 one  = document.querySelector(".one")
@@ -24,31 +25,38 @@ six  = document.querySelector(".six")
 seven  = document.querySelector(".seven")
 eight  = document.querySelector(".eight")
 nine  = document.querySelector(".nine")
-pre = document.querySelector("pre")
-// zero.addEventListner("click", ()=>{
-//     document.querySelector(".container pre").textContent = "is it woe";
-// })
+
+var ac = document.querySelector(".ac")
+var add = document.querySelector(".add")
+var subtract = document.querySelector(".subtrack")
+var multiply = document.querySelector(".multiply")
+var divide = document.querySelector(".divide")
+var assignment = document.querySelector(".assignment")
+
 function text(){
     document.querySelector("pre").textContent= "ia ir "    
 }
-
-document.querySelector(".zero").addEventListener("click", e =>{
-    document.querySelector('pre').textContent = zero.textContent
-})
-
-document.querySelector(".one").addEventListener("click", e =>{
-    document.querySelector('pre').textContent = one.textContent
-})
-two.addEventListener('click', text)
-
-function globalEvent(type , selector, callback){
-    document.querySelector(selector).addEventListener(type, )
+function removetext(){
+    pre.textContent = ''
 }
 
-var file = document.querySelectorAll("button").length
+ac.addEventListener('click', removetext)
+one.addEventListener('click' , text)
+zero.addEventListener('click', text)
 
+
+// function globalEvent(type , selector, callback){
+    // document.querySelector(selector).addEventListener(type, )
+// }
+
+var file = document.querySelectorAll("button").length;
+
+var number1 ;
+var number2 ;
 
 for (var i = 0; i < file ; i++){
-    document.querySelector
+    document.querySelectorAll(".container button")[i].addEventListener('click', e =>{
+        pre.textContent = e.target.textContent;
+    })
 }
 
