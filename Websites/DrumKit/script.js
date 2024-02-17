@@ -125,3 +125,13 @@ instead of switch if we have used if else statements then this was the code
         }
         
 */
+
+// document.addEventListener('keypress', function(e){
+//     console.log(e)
+// })
+// document.addEventListener('click', (e) => {
+//     console.log(e)
+// }) // log the event that is happening
+
+
+
