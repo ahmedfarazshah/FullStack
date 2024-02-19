@@ -37,7 +37,7 @@ function text(){
     document.querySelector("pre").textContent= "ia ir "    
 }
 function removetext(){
-    pre.textContent = ''
+    pre.textContent = 0
 }
 
 ac.addEventListener('click', removetext)
