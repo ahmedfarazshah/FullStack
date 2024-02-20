@@ -28,11 +28,13 @@ h1{
     border: 2px solid beige;
 }
 pre{
-    width: 99%;
+    width: auto;
     height: 30%;
     outline: none;
     border: 2px solid slategrey;
     border-radius: 12px;
+    text-align: right;
+    padding: 10px;
 }
 section{
     height: 75%;

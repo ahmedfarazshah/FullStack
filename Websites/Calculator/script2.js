@@ -18,23 +18,23 @@ var ac = document.querySelector(".ac")
 var assignment = document.querySelector(".assignment")
 
 
-function add(num1 , num2){
+function addX(num1 , num2){
     return num1 + num2
 }
-function subtract (num1 , num2){
+function subtractX (num1 , num2){
     return num1 - num2
 }
-function multiply (num1 , num2){
+function multiplyX (num1 , num2){
     return num1 * num2
 }
-function divide(num1 , num2){
+function divideX(num1 , num2){
     return num1 / num2
 }
-function removeContent(){
+function removeContentX(){
     display.textContent = 0
 }
 // callback function
-function operation (num1, num2, callback){
+function operationX (num1, num2, callback){
     return callback(num1, num2)
 }
 
@@ -48,28 +48,38 @@ var nums = document.querySelectorAll(".numberSection button").length
 var operands = document.querySelectorAll(".operandSection button").length
 
 var selectedNums = [];
-var operators = [];
 var result;
 
 
 for (var i = 0; i < nums_operands; i++){
     document.querySelectorAll(".container button")[i].addEventListener("click", function(){
         display.textContent = this.textContent;
-        if(this.textContent === "AC")
-            display.textContent = 0;
-    
+
         })
 }
+
+
 for (var i = 0; i < nums; i++){
     document.querySelectorAll(".numberSection button")[i].addEventListener("click", function(){
-        selectedNums.push(this.textContent);        
-    })
-}
-for (var i = 0; i < operands; i++){
-    document.querySelectorAll(".operandSection button")[i].addEventListener("click", function(){
-        operators.push(this.textContent);
-        if(this.textContent === 'AC'){
-            display = 0        }
+        selectedNums.push(this.textContent);
     })
 }
 
+
+for (var i = 0; i < operands; i++){
+    document.querySelectorAll(".operandSection button")[i].addEventListener("click", function(){
+        var selc = selectedNums.length
+        switch(this.textContent){
+            case '+':
+                var file = addX(selectedNums[selc -1], selectedNums[selc -2])
+                    display.textContent = file;
+                    
+                
+
+
+
+            }        
+    
+    
+    })
+}
