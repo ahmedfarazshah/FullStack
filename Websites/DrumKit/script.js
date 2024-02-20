@@ -136,11 +136,22 @@ for(var i = 0; i < numOfDrums; i++){
     document.querySelectorAll(".drum")[i].addEventListener('click', function() {
         var selec = this.textContent;
         press_click(selec);
+        animation(selec)
         // this.style.color= 'white' // this keyword selects the current item
         // e.target.style.color = 'blue' // can also do using arrow functions
     })
 }
 document.addEventListener("keypress", function(e){ // we could have also selected it inside the loop but it work have worked after the click event as one event is already assigned to it
     press_click(e.key)
-                
+    animation(e.key)               
 })
+
+function animation (value){
+    var file = document.querySelector('.'+value);
+    file.classList.add("pressed")
+    // will set a timeout so that the class will remove after a 0.1 sec
+    setTimeout(function(){
+        file.classList.remove('pressed')
+    }, 88)
+
+}

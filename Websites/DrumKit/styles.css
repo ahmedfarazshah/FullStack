@@ -90,3 +90,10 @@ footer {
     font-weight: 700;
     font-family: sans-serif;
 }
+
+
+
+.pressed {
+  box-shadow: 0 3px 4px 0 #000000;
+  opacity: 0.5;
+}
