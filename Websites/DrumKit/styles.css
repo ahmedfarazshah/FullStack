@@ -95,5 +95,6 @@ footer {
 
 .pressed {
   box-shadow: 0 3px 4px 0 #000000;
+  background-color: black;
   opacity: 0.5;
 }
