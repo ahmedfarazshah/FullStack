@@ -1,23 +1,3 @@
-var zero = document.querySelector(".zero");
-var one = document.querySelector(".one");
-var two = document.querySelector(".two")
-var three = document.querySelector(".three")
-var four = document.querySelector(".four")
-var five = document.querySelector(".five")
-var six = document.querySelector(".six")
-var seven = document.querySelector(".seven")
-var eight = document.querySelector(".eight")
-var nine = document.querySelector(".nine")  
-var dot = document.querySelector(".dot")
-
-var add = document.querySelector(".add")
-var subtract = document.querySelector(".subtract")
-var multiply = document.querySelector(".multiply")
-var divide = document.querySelector(".divie")
-var ac = document.querySelector(".ac")
-var assignment = document.querySelector(".assignment")
-
-
 function addX(num1 , num2){
     return num1 + num2
 }
@@ -38,48 +18,61 @@ function operationX (num1, num2, callback){
     return callback(num1, num2)
 }
 
-
-
-var display = document.querySelector("pre")
 // for the displaying the reasult
 
-var nums_operands = document.querySelectorAll(".calculatorButtons button").length
-var nums = document.querySelectorAll(".numberSection button").length
-var operands = document.querySelectorAll(".operandSection button").length
+var allButtons, numbers , operands, display;
 
-var selectedNums = [];
-var result;
-
-
-for (var i = 0; i < nums_operands; i++){
-    document.querySelectorAll(".container button")[i].addEventListener("click", function(){
-        display.textContent = this.textContent;
-
-        })
-}
+display = document.querySelector("pre")
+allButtons = document.querySelectorAll(".calculatorButtons button").length
+numbers = document.querySelectorAll(".numberSection button").length
+operands = document.querySelectorAll(".operandSection button").length
 
 
-for (var i = 0; i < nums; i++){
-    document.querySelectorAll(".numberSection button")[i].addEventListener("click", function(){
-        selectedNums.push(this.textContent);
+var selectedNums, selectedNumsLength, result;
+
+selectedNums = [];
+selectedNumsLength = selectedNums.length
+result;
+
+// for displaying
+for(let i =0 ; i < allButtons; i++){
+    document.querySelectorAll(".calculatorButtons button")[i].addEventListener('click', function(){
+        this.textContent === "AC" ? display.textContent = 0 : display.textContent = this.textContent;
     })
 }
-
-
-for (var i = 0; i < operands; i++){
-    document.querySelectorAll(".operandSection button")[i].addEventListener("click", function(){
-        var selc = selectedNums.length
-        switch(this.textContent){
-            case '+':
-                var file = addX(selectedNums[selc -1], selectedNums[selc -2])
-                    display.textContent = file;
-                    
-                
-
-
-
-            }        
-    
-    
+for (let i = 0; i < numbers ; i++){
+    document.querySelectorAll(".numberSection button")[i].addEventListener('click', function(){
+        selectedNums.push(this.textContent)
     })
+}
+for (let i = 0 ; i< operands; i++){
+    document.querySelectorAll(".operandSection button")[i].addEventListener('click', function(){
+        console.log(choosingOperators(this.textContent, selectedNums[selectedNumsLength -2], selectedNums[selectedNumsLength -1])
+        )
+    })
+}
+// for the keypress
+
+// for (var k = 0; k < allButtons )
+// 
+
+
+
+function choosingOperators(argue, a , b){
+    
+    switch (argue){
+        case "+":
+            addX(a,b);
+            break;
+        case "-":
+            subtractX(a,b)
+            break;
+        case "*":
+            multiplyX(a, b)
+            break;
+        case "/":
+            divideX(a,b);
+            break;
+
+    }
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Formation</title>
+    <script de></script>
+  </head>
+<body>
+    <h2>Star Formation using loops</h2>
+
+    
+<script>
+  var n = prompt('Write the lenth of stars to display')
+// let n = 5; // you can take input from prompt or change the value
+
+// right angle triangles
+    let string = "";
+    for (let i = 1; i <= n; i++) {
+      // printing spaces
+      for (let j = n; j >= i; j--) {
+        string += " ";
+      } 
+      // printing star
+      for (let k = 0; k < i; k++) {
+        string += "*";
+      }
+      string += "<br>";
+    }
+    document.write(`<p>${string}</p>`);
+
+
+
+    // Pyramid Triangle
+
+    let file = "";
+    // External loop
+    for (let i = 1; i <= n; i++) {
+      // printing spaces
+      for (let j = n; j > i; j--) {
+        file += " ";
+      }
+      // printing star
+      for (let k = 0; k < i * 2 - 1; k++) {
+        file += "*";
+      }
+      file += "<br>";
+    }
+    document.write(`<pre>${file}</pre>`);
+
+
+    //Diamond Formation
+    let diamond = "";
+    // Upside pyramid
+    for (let i = 1; i <= n; i++) {
+      // printing spaces
+      for (let j = n; j > i; j--) {
+        diamond += " ";
+      }
+      // printing star
+      for (let k = 0; k < i * 2 - 1; k++) {
+        diamond += "*";
+      }
+      diamond += "\n";
+    }
+    // downside pyramid
+    for (let i = 1; i <= n - 1; i++) {
+      // printing spaces
+      for (let j = 0; j < i; j++) {
+        diamond += " ";
+      }
+      // printing star
+      for (let k = (n - i) * 2 - 1; k > 0; k--) {
+        diamond += "*";
+      }
+      diamond += "\n";
+    }
+    document.write(`<pre>${diamond}</pre>`);
+
+</script>
+</body>
+</html>
