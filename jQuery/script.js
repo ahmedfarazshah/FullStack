@@ -16,3 +16,11 @@ $(document).keypress(function(event){
     // $('h1').html("<em>"+ file + "<em/>").css('color', 'red') // WITHOUT USING TEMPLATE LITERALS
     
 })
+
+// how to create an element using jQuery
+
+$('h1').before("<p> this is to check the element <br> or \n is it </p>")
+$("h1").css('margin', "0")
+// document.querySelector('h1').style.margin = "110px"
+
+$('input').after('<button>xlikc</button>')

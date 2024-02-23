@@ -14,7 +14,7 @@
 
     <script>
         var file = document.createElement('button')
-        document.querySelector('div').before(file)
+        document.body.prepend(file)// creating the file and adding it before any other thing
         file.style.width  ="200px";
         file.textContent = "this is a button to click which is appendid or prepended" 
 
