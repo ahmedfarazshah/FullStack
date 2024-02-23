@@ -1,0 +1,27 @@
+body{
+    background-color: rgba(200, 200, 0, 0.6);
+    text-align: center;
+}
+button {
+    width: 100px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0,1);   
+    color: white;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 1);
+    transition: ease-in-out 0.4s;
+    color: black;
+
+}
+.font-styling{
+    font-size: 10rem;
+}
+img{
+    width: 200px;
+    border-radius: 50%;
+}
