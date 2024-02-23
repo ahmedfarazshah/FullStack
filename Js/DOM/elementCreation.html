@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+
+    <div>this is a text to check the append div</div>
+
+    <script>
+        var file = document.createElement('button')
+        document.querySelector('div').before(file)
+        file.style.width  ="200px";
+        file.textContent = "this is a button to click which is appendid or prepended" 
+
+
+    </script>
+
+</body>
+</html>
