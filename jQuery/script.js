@@ -24,3 +24,13 @@ $("h1").css('margin', "0")
 // document.querySelector('h1').style.margin = "110px"
 
 $('input').after('<button>xlikc</button>')
+
+
+// animating using jQuery
+$("button").on("click", function(){
+    // $('img').slideToggle()
+    // $('img').fadeOut().slideDown() // combining animations
+    setTimeout($("h1").animate({opacity : 0.2}), 1000)
+    
+
+})
