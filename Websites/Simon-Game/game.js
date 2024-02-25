@@ -1,12 +1,28 @@
 
 var gamePattern = []
-
-
 var userClickedPatterns = []
-
 
 var buttonColors = ["red", "blue", "green", "yellow"]
 
+var started = false;
+var level = 0;
+
+// 0n the keypress the game will start
+$(document).keypress(function(){
+    if(!started){
+        nextSequence();
+        started = true;
+    }
+})
+
+
+
+$(".btn").click(function(){
+    var userChoosenColor= this.id;
+    userClickedPatterns.push(userChoosenColor);
+    sound(userChoosenColor)
+    animateOnPress(this.id)
+})
 
 
 function nextSequence(){
@@ -17,22 +33,19 @@ function nextSequence(){
     $("#"+randomChoosenColor).fadeOut(100).fadeIn(100)
 
     sound(randomChoosenColor)
+    level++;
+    $("#level-title").text("level " + level)
+
 
 }
 
-$(".btn").click(function(){
-    var userChoosenColor= this.id;
-    userClickedPatterns.push(userChoosenColor);
-    sound(userChoosenColor)
-    animateOnPress(this.id)
-})
+
 
 function sound(name){
     var soundToPlay = new Audio("Assets/sounds/"+name+".mp3")
     soundToPlay.play()
 
 }
-
 function animateOnPress(currentColor){
     $("#"+currentColor).addClass("pressed")
     setTimeout(() => {
