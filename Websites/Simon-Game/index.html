@@ -1,37 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simon Game</title>
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="icon" href="/Assets/Images/No Signla.png">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <meta charset="utf-8">
+  <title>Simon</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 </head>
+
 <body>
+  <h1 id="level-title">Press A Key to Start</h1>
+  <div class="container">
+    <div lass="row">
 
-    <section class="container">
-        <h1>Press A Key To Start</h1>
-        <div class="tiles">
-            <button class="btn red"></button>
-            <button class="btn blue"></button>
-            <button class="btn green"></button>
-            <button class="btn yellow"></button>
-        </div>
-    
-    
-    
-    
-    
-    </section>
+      <div type="button" id="green" class="btn green">
 
+      </div>
 
+      <div type="button" id="red" class="btn red">
 
+      </div>
+    </div>
 
+    <div class="row">
 
+      <div type="button" id="yellow" class="btn yellow">
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="./script.js" charset="UTF-8"></script>
+      </div>
+      <div type="button" id="blue" class="btn blue">
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="game.js" charset="utf-8"></script>
 
 </body>
+
 </html>
