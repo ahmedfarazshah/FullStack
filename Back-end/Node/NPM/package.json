@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "hash.js": "^1.1.7",
+    "sillyname": "^0.1.0"
+  },
+  "name": "hashingxsillyname",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ahmed",
+  "license": "ISC",
+  "description": ""
+}
