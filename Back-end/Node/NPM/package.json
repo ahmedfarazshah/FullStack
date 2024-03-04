@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "hash.js": "^1.1.7",
-    "sillyname": "^0.1.0"
+    "sillyname": "^0.1.0",
+    "superheros": "^1.0.0"
   },
   "name": "hashingxsillyname",
   "version": "1.0.0",
