@@ -11,11 +11,8 @@ import fileSystem from "node:fs"
 //     console.log("The message has been saved")
 // })
 
-// // fetching the file
-// fileSystem.readFile("./message.txt","utf-8", (err, filedata)=> {
-//     if(err) throw err;
-//     console.log(filedata);
-// })
-
-var file = fileSystem.createReadStream("text-file.txt", {encoding:"utf-8"})
-
+// fetching the file
+fileSystem.readFile("./message.txt","utf-8", (err, filedata)=> {
+    if(err) throw err;
+    console.log(filedata);
+})
