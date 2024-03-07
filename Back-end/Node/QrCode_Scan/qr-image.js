@@ -10,11 +10,11 @@ import fs from "fs"
 //     if(err)throw err;
 // }));
 
-var file = qrfile.image("is this the message of qr", {type: "svg", size:'1'})
-file.pipe(fs.createWriteStream("qrcode.svg"))
+var file = qrfile.image("Looking forward to see you", {type: "svg", size:'3'})
+file.pipe(fs.createWriteStream("qrcodenew.svg"))
 
-var srtingImage = qrfile.imageSync("data of qr", {type:"svg"})
-console.log(srtingImage)
+// var srtingImage = qrfile.imageSync("data of qr", {type:"svg"})
+// console.log(srtingImage)
 
 
 

@@ -14,19 +14,28 @@ inquirer
   .prompt([
     {
       type: "input",
-      message: "what is your name",
+      message: "Type your URL",
       name : "URL",
     }
   ])
   .then((answer) => {
-    const file = answer; // the .url will remove the qoutation marks and will return it as a url but the value of name property in the prompt must be in URL ;
-    console.log(file)
+    const file = answer.URL; // the .url will remove the qoutation marks and will return it as a url but the value of name property in the prompt must be in URL ;
+    var qrFile = qr.image(file, {type : 'svg'})
+    qrFile.pipe(fs.createWriteStream("newqr.svg"))
+    fs.writeFile("newmessage.txt", file, (err)=>{if(err)throw err})
+        
   })
   .catch((error) => {
     if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
+      throw error.isTtyError  // Prompt couldn't be rendered in the current environment
     } else {
       // Something else went wrong
       console.log("if the thing we want is not fullfilled ")
     }
   });
+
+
+
+
+
+
