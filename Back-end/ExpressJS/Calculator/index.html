@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body>
+
+    <h1>Calculator</h1>
+    <!-- the user will send files the /answer due to the post method -->
+    <!-- the values will be sent to the /answers directory but to make the page visible  -->
+    <form action="/answer" method="post"> 
+        <input type="text" name="num1" placeholder="Number 1">
+        <input type="text" name="num2" placeholder="Number 2">
+        <!-- <input type="button" name="toadd" itemscope>
+        <input type="button" name="tosub" placeholder="-">
+        <input type="button" name="tomul" placeholder="*">
+        <input type="button" name="todiv" placeholder="/"> -->
+        <button type="submit" name="submit">Calculate</button>
+
+    </form>
+
+
+
+
+</body>
+</html>
