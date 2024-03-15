@@ -40,7 +40,7 @@ app.post("/" , (req,res)=>{
     
     const option = { // this is in node documentation to do so
         method : "POST",
-        auth : "ahmed2:169553b20d186670ba88a22580859379-us22"
+        auth : "ahmed2:e2ed7648c9007e2b355cb4e6d7fb636e-us22"
     }
 
     const request = https.request(url , option , function(response){
@@ -62,6 +62,7 @@ app.post("/" , (req,res)=>{
 
 // mailchimp key
 // 169553b20d186670ba88a22580859379-us22
+// e2ed7648c9007e2b355cb4e6d7fb636e-us22 new
 
 // mailchimp id
 // 4e65b78a93
