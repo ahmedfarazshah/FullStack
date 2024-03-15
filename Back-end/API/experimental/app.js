@@ -4,8 +4,12 @@ const https = require("https")
 const bodyParser = require("body-parser")
 const { join } = require("path")
 app.use(bodyParser.urlencoded({extended:true}))
+app.use(express.static("/")) // this will ensure any static data ; according to me xd
+
 // const bodyParser = require("body-parser")// incase if you used a form to get data from the client
 // app.use(bodyParser({extenable: true}))
+
+
 
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + "/index.html")
@@ -38,17 +42,17 @@ app.post("/countries" , (req, res)=>{
         response.on("data", data=>{
             
             const countryInfo = JSON.parse(data)
-            const icon = JSON.stringify( countryInfo[0].flags.png)
-            console
-            
+            const countryCode = countryInfo[0].cca2
+            const icon = "https://flagcdn.com/48x36/"+countryCode +".png"            
             res.write("Country : " + countryInfo[0].name.common +"\n")
             res.write("Offical Name of Country : "+ countryInfo[0].name.official +"\n") 
             res.write("Capital City : " + countryInfo[0].capital +"\n")
             res.write("Continent : " + countryInfo[0].region + " sub : " + countryInfo[0].subregion +"\n")
             res.write("Borders with : " + countryInfo[0].borders +"\n")
-            res.write("Area : " + countryInfo[0].area +"\n")
+            res.write("Area : " + countryInfo[0].area +"sqkm\n")
             res.write("Population : " + countryInfo[0].population +"\n")
-            res.write(`<img src= ${(icon)}></img> \n`)
+            // res.write(`<img src= ${icon}></img> \n`) // it must be an external link
+            res.write("<img src= "+ icon + ">") //i don't know but the image is not showing 
             res.send()
 
         })
