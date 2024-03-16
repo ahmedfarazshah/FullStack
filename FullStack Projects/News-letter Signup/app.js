@@ -40,17 +40,27 @@ app.post("/" , (req,res)=>{
     
     const option = { // this is in node documentation to do so
         method : "POST",
-        auth : "ahmed2:e2ed7648c9007e2b355cb4e6d7fb636e-us22"
+        auth : "mykey:f340c50a72a3c614277c4b0be3da1a12-us22" /// if upload on github then changed the key as it will be revoked by the mailchimp site
     }
 
-    const request = https.request(url , option , function(response){
+    const request = https.request(url , option , response=>{
         response.on("data", data=>{
             console.log(JSON.parse(data))
+            if(response.statusCode == 200){
+                res.sendFile(__dirname + '/success.html')
+            }else {
+                res.sendFile(__dirname + "/failure.html")
+            }
         })
     })
 
     request.write(jsonData)
     request.end() // that the data we send was complete
+
+
+})
+app.post("/failure" ,(req, res)=>{
+    res.redirect("/")
 })
 
 
@@ -59,10 +69,8 @@ app.post("/" , (req,res)=>{
 
 
 
-
 // mailchimp key
-// 169553b20d186670ba88a22580859379-us22
-// e2ed7648c9007e2b355cb4e6d7fb636e-us22 new
+// f340c50a72a3c614277c4b0be3da1a12-us22
 
 // mailchimp id
 // 4e65b78a93
