@@ -1,5 +1,5 @@
-var express = require("express")
-var bodyParser = require("body-parser")
+const express = require("express")
+const bodyParser = require("body-parser")
 
 const app = express()
 
@@ -8,6 +8,9 @@ app.set("view engine" , "ejs")
 app.use(bodyParser.urlencoded({extended: true}))
 
 var items = ["Buy Books", "Read Books", "Code"]
+var workItems = []
+
+
 app.get("/", (req, res)=>{
     const today = new Date() // created the date object so that we will be able to fetch the current day and date
 
@@ -18,19 +21,33 @@ app.get("/", (req, res)=>{
         year : "numeric",
     }    
     var day = today.toLocaleDateString("ur-Ur", options) // uses the string format as setted in the options
-
-        // res.send("Hurray It is : " + day + " and is a weekend") // uncommenting so that we are using ejs file
-        res.render("list", {WhichDay: day, newlyListed: items})
+    
+    res.render("list", {ListTitle: day, newlyListed: items})
     
 })
 
 app.post("/", (req,res)=>{
-    var newInput = req.body.whatTodo
-    items.push(newInput)
-    res.redirect("/")
+    let newInput = req.body.whatTodo
+    if(req.body.button === "Work"){
+        workItems.push(newInput)
+        res.redirect("/work")
+    }else{
+        items.push(newInput)
+        res.redirect("/")
+        // console.log(req.body.button) // This showed us the value of the button that was pressed on which page using the template
+
+    }
 })
 
 
+app.get("/work", (req,res)=>{
+    res.render("list", {ListTitle : "Work", newlyListed: workItems})
+
+})
+
+app.get("/about", (req,res)=>{
+    res.render("about")
+})
 
 
 
