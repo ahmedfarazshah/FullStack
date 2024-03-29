@@ -1,5 +1,6 @@
 const express = require("express")
 const bodyParser = require("body-parser")
+const date = require(__dirname + "/date.js")
 
 const app = express()
 
@@ -7,21 +8,13 @@ app.use(express.static("public"))
 app.set("view engine" , "ejs")
 app.use(bodyParser.urlencoded({extended: true}))
 
-var items = ["Buy Books", "Read Books", "Code"]
-var workItems = []
+const items = ["Buy Books", "Read Books", "Code"]
+const workItems = []
 
 
 app.get("/", (req, res)=>{
-    const today = new Date() // created the date object so that we will be able to fetch the current day and date
-
-    var options = {
-        weekday : "long",
-        day : "numeric",
-        month : "long",
-        year : "numeric",
-    }    
-    var day = today.toLocaleDateString("ur-Ur", options) // uses the string format as setted in the options
     
+    const day = date.getdate()    
     res.render("list", {ListTitle: day, newlyListed: items})
     
 })
@@ -48,7 +41,6 @@ app.get("/work", (req,res)=>{
 app.get("/about", (req,res)=>{
     res.render("about")
 })
-
 
 
 
