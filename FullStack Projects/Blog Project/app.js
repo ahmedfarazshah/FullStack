@@ -16,7 +16,8 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 let posts = []
 
 app.get("/", (req, res)=>{
-  res.render("home", {dummyContent: homeStartingContent})
+
+  res.render("home", {dummyContent: homeStartingContent, post : posts})
 })
 
 app.get("/about",(req,res)=>{
