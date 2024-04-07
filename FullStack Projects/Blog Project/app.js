@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
+const _ = require("lodash")
 
 const app = express();
 
@@ -16,7 +17,6 @@ const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rho
 let posts = []
 
 app.get("/", (req, res)=>{
-
   res.render("home", {dummyContent: homeStartingContent, post : posts})
 })
 
@@ -44,15 +44,15 @@ app.post("/compose", (req,res)=>{
 
 app.get("/post/:postName", function(req,res){ // you can use - / . for routing before : 
   
-  console.log(posts.title)
-  // posts.forEach(element => {
-  //   if(element.title === req.params.postName){
-  //   console.log("Match Found :")}
-  //   else{
-  //     console.log("Match Not found :")
-      
-  //   }
-  // })
+  const requestedTitle = _.lowerCase(req.params.postName)
+
+  posts.forEach(post=>{
+    const storedTitle = _.lowerCase(post.title)
+
+    if(requestedTitle === storedTitle){
+      console.log("Match found")
+    }
+  })
 })
 
 app.listen(3000, function() {
