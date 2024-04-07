@@ -42,8 +42,18 @@ app.post("/compose", (req,res)=>{
   res.redirect("/")
 })
 
-
-
+app.get("/post/:postName", function(req,res){ // you can use - / . for routing before : 
+  
+  console.log(posts.title)
+  // posts.forEach(element => {
+  //   if(element.title === req.params.postName){
+  //   console.log("Match Found :")}
+  //   else{
+  //     console.log("Match Not found :")
+      
+  //   }
+  // })
+})
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");
