@@ -26,7 +26,7 @@ app.get("/about",(req,res)=>{
 
 app.get("/contact", (req,res)=>{
   res.render("contact", {contactInfo : contactContent})
-})
+})  
 
 app.get("/compose", (req, res)=>{
   res.render("compose")
@@ -48,9 +48,11 @@ app.get("/post/:postName", function(req,res){ // you can use - / . for routing b
 
   posts.forEach(post=>{
     const storedTitle = _.lowerCase(post.title)
-
     if(requestedTitle === storedTitle){
-      console.log("Match found")
+      const requestedContent = post.content
+      const camelTitle = _.camelCase(storedTitle) // there is no need to store the values in a variable as you can use post.title or post.content inside if statement
+      res.render("post", {title: camelTitle, content: requestedContent})
+    
     }
   })
 })
