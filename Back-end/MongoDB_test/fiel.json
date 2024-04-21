@@ -1,0 +1,21 @@
+// this was just for the mongoDB collection 
+// for testing purpose
+
+db.products.insertOne({
+    id: 2,
+    name: "Pencil",
+    price : 25,
+    stock : 100,
+    reviews: [
+        {
+            author: "Luke Damant",
+            rating : 4.2,
+            comment: "Highly Recommended"
+        },
+        {
+            author : "Hanzel",
+            rating: 5,
+            comment : "loved it"
+        }
+    ]
+})
