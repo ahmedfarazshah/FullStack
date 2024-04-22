@@ -1,5 +1,5 @@
 ////////////////////////// depricated one
-const { MongoClient } = require("mongodb");
+const MongoClient = require("mongodb");
 
 const assert = require("assert") // for testing nodejs applications
 
@@ -23,6 +23,8 @@ client.connect(err=>{
 })
 
 ///////////////////////////////////////////////////////////////////////
+
+////////////////// this is not depricated but is ideal for adding values in the async function
 // for inserting documents now the documents are added using a async function
 const insertDocuments = function (db, callback){
     // get the documents collection
