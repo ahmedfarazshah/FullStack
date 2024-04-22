@@ -30,16 +30,22 @@ async function run() {
     
     
 //    You can use this to display in the console as it uses a for loop
-    console.log("Summer Fruits:");
-    for await (const fruit of summerfruits) {
-      console.log(fruit);
-    }
-    console.log("winter Fruits")
-    for await (const fruit of winterfruits){
-      console.log(fruit)
-    }
+    // console.log("Summer Fruits:");
+    // for await (const fruit of summerfruits) {
+    //   console.log(fruit);
+    // }
+    // console.log("winter Fruits")
+    // for await (const fruit of winterfruits){
+    //   console.log(fruit)
+    // }
 // or this was used earlier back in the days
-    summer_fruits.find().toArray(function(data){console.log(data)})
+    // summer_fruits.find().toArray(function(data){console.log(data)})
+    try {
+      const summerFruits = await winter_fruits.find().toArray(); // better than using loops i guess
+      console.log(summerFruits);
+    } catch (error) {
+      console.error("Error fetching fruits:", error);
+    }
 
 
   } finally {
