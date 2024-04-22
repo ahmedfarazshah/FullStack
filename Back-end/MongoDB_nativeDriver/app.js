@@ -5,6 +5,7 @@ const { MongoClient } = require("mongodb");
 const uri = "mongodb://localhost:27017";
 
 const client = new MongoClient(uri);
+// creating and inserting database, collection, and database
 
 async function run() {
   try {
@@ -19,7 +20,8 @@ async function run() {
 
     // inserting values in the collection
     await summer_fruits.insertMany([mango, apple, blueberries, cherry])
-    const summerfruits = await summer_fruits.find({});
+    // for finding / quering the values in the collecion
+    const summerfruits = await summer_fruits.find();
 
     // You can use this to display in the console as it uses a for loop
     console.log("Summer Fruits:");

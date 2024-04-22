@@ -1,20 +1,42 @@
-const assert = require("assert")
+////////////////////////// depricated one
+const { MongoClient } = require("mongodb");
+
+const assert = require("assert") // for testing nodejs applications
 
 
+// Connection URL.
+const url = "mongodb://localhost:27017";
+
+// DataBase Name
+const dbName = "FruitsDB"
+
+//create a new mongo client
+const client = new MongoClient(url);
+
+// use connect method to connect to the server
+client.connect(err=>{
+    assert.equal(null , err) // if everthing happens without an error then it will run console.log
+    console.log("Connected to the server successfuly") 
+    
+    const db = client.db(dbName)
+    client.close()
+})
+
+///////////////////////////////////////////////////////////////////////
 // for inserting documents now the documents are added using a async function
 const insertDocuments = function (db, callback){
     // get the documents collection
     const collection = db.collection("documents")
-    //insert some documnents
+    //insert some documnents // with the assert to add testing features 
     collection.insertMany([{a:1}, {a:2}], function (err, result){
         assert.equal(err, null)
-        assert.equal(3, result.result.n)
-        assert.equal(3, result.ops.lenth)
+        assert.equal(2, result.result.n) // both the below one and this one ensures that 2 entries are entered 
+        assert.equal(2, result.ops.lenth)
         console.log("inserted 2 douments into the collection")
         callback(result);
     })
 
-}
+}// and then it would have been called in the client.connect(depricated) as insertDocument(db, callback )
 
 
 // NOW  THIS IS USED TO INSERT SOME VALUES INTO THE COLLECTION
