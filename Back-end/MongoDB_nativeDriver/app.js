@@ -38,7 +38,8 @@ async function run() {
     for await (const fruit of winterfruits){
       console.log(fruit)
     }
-
+// or this was used earlier back in the days
+    summer_fruits.find().toArray(function(data){console.log(data)})
 
 
   } finally {

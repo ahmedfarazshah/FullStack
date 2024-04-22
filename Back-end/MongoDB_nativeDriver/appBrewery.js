@@ -75,9 +75,9 @@ async function run() {
     // Get the documents collection
     const collecion = db.collecion("winter")
     // find some documents
-    collection.find().toArray(err, docs){
+    collection.find().toArray(function(err, docs){
       assert.equal(null, err);
       console.log("Found the following records")
       console.log(docs)
-    }
+    })
   }
