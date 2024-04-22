@@ -64,3 +64,20 @@ async function run() {
   }
   // Run the function and handle any errors
   run().catch(console.dir);
+
+
+
+
+
+  //////////////////////////////// finding documents
+
+  const findDocs = function(db){
+    // Get the documents collection
+    const collecion = db.collecion("winter")
+    // find some documents
+    collection.find().toArray(err, docs){
+      assert.equal(null, err);
+      console.log("Found the following records")
+      console.log(docs)
+    }
+  }
