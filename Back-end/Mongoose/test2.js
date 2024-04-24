@@ -3,10 +3,11 @@ const mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost:27017/Mobiles")
 
 const mobileSchema = mongoose.Schema({
+    id : {type : Number , unique: true},
     model : String,
     os : String,
     made_in : String,
-    year : Number
+    year : {type : Number, required: true}
 })
 
 const android = mongoose.model("andriod", mobileSchema)

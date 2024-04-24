@@ -3,8 +3,8 @@ const mongoose = require("mongoose")
 mongoose.connect("mongodb://localhost:27017/Real_State")
 
 const houseSchema = new mongoose.Schema({
-    Location : String,
-    land_in_acre : Number,
+    Location : {type : String, required: true},
+    land_in_acre : {type : Number, required: [true, "write land in numbers : acres"]},
     number_of_rooms : Number
 })
 const landSchema = new mongoose.Schema({
