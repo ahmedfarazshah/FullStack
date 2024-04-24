@@ -5,13 +5,14 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB") // this will connect and 
 // will make a schema so that we will use in model
 
 const fruitSchema = new mongoose.Schema({
-    name : String,
+    name : {type : String, required : true, },
     season : String,
-    rating : Number
+    rating : {type: Number , min : 1, max :[10, 'standard type of rating 1-10']}
 })
 const peopleSchema = new mongoose.Schema({
+    id: {unique : true , required: true},
     name : String,
-    age : Number
+    age : {type :Number, min: 18, max:101}
 })
 
 // model : creates a collection and is using schema to store records
@@ -83,12 +84,14 @@ async function summerFruits(){
         sumfruits.forEach(data=>{
             console.log(data.name)
         })
+        mongoose.disconnect()
+        console.log("connection closed")
     }catch (err){
         console.log("connection closed err", err)
     }
     
 }   
 
-winterFruits()
-findPeople()
+// winterFruits()
+// findPeople()
 summerFruits()
