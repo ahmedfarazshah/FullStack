@@ -9,10 +9,16 @@ const fruitSchema = new mongoose.Schema({
     season : String,
     rating : Number
 })
+const peopleSchema = new mongoose.Schema({
+    name : String,
+    age : Number
+})
 
 // model : creates a collection and is using schema to store records
 
 const summer = mongoose.model("summer_fruit", fruitSchema)
+const winter = mongoose.model("winter", fruitSchema)
+const people = mongoose.model("people", peopleSchema)
 
 // now inserting records to the summer collection
 
@@ -21,28 +27,10 @@ const mango = new summer({
     season : "Summer",
     rating: 9
 })
-// to save or add records to the collection we use .save
-// apple.save()
-
-// now making another collection for people
-const peopleSchema = new mongoose.Schema({
-    name : String,
-    age : Number
-})
-
-
-const people = mongoose.model("people", peopleSchema)
-
 const person2 = new people({
     name : "John Cena",
     age : 44
 })
-// person2.save().then(()=>{console.log("You can see me")})
-
-
-// to insert many we use the model : Fruits.insertMany([apple, orange, banna], function(err, data){})
-const winter = mongoose.model("winter", fruitSchema)
-
 const orange = new winter({
     name: "orange",
     season: "winter",
@@ -59,4 +47,48 @@ const gindawar = new winter({
     rating : 5
 })
 
+// to save or add records to the collection we use .save
+// apple.save()
+// mango.save()
+
+// to insert many we use the model : Fruits.insertMany([apple, orange, banna], function(err, data){})
 // winter.insertMany([orange, harmit, gindawar])
+// person2.save().then(()=>{console.log("You can see me")})
+
+async function winterFruits(criteria= {}, projection = {}){
+    try{
+        const winfruits = await winter.find(criteria, projection)
+    winfruits.forEach((data)=>{
+        console.log(data.name , "rating : ", data.rating)
+    })
+}catch (err) {
+    console.log("error found ",err)
+}
+}
+
+async function findPeople(){
+    try{
+        const allpeople = await people.find()
+        allpeople.forEach(function(data){
+            console.log(data.name)
+        })
+    }catch(err){
+        console.log("error found: "), err;
+    }
+    
+}
+async function summerFruits(){
+    try{
+        const sumfruits = await summer.find()
+        sumfruits.forEach(data=>{
+            console.log(data.name)
+        })
+    }catch (err){
+        console.log("connection closed err", err)
+    }
+    
+}   
+
+winterFruits()
+findPeople()
+summerFruits()
