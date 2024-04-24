@@ -52,3 +52,13 @@ async function findLands() {
     }
   }
 findLands()  
+async function findHouses(criteria = {}) {
+    try {
+      const houses = await House.find(criteria);
+      console.log("Found houses:", houses);
+    } catch (error) {
+      console.error("Error finding houses:", error);
+    }
+  }
+    
+findHouses({ land_in_acre: { $gt: 20 } }); // $gt stands for "greater than"
