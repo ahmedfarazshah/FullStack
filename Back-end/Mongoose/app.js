@@ -57,7 +57,7 @@ const gindawar = new winter({
 
 // to insert many we use the model : Fruits.insertMany([apple, orange, banna], function(err, data){})
 // winter.insertMany([orange, harmit, gindawar])
-person.save()
+// person.save()
 
 
 
