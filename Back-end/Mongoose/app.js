@@ -157,3 +157,6 @@ async function summerFruits(){
 // winterFruits()
 // findPeople()
 // summerFruits()
+
+
+// check test-embeding to see the how relationship is builded in mongoose 
