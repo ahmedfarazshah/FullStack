@@ -54,7 +54,7 @@ async function findLands() {
 findLands()  
 async function findHouses(criteria = {}) {
     try {
-      const houses = await House.find(criteria);
+      const houses = await homes.find(criteria);
       console.log("Found houses:", houses);
     } catch (error) {
       console.error("Error finding houses:", error);

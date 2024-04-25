@@ -10,7 +10,7 @@ const fruitSchema = new mongoose.Schema({
     rating : {type: Number , min : 1, max :[10, 'standard type of rating 1-10']}
 })
 const peopleSchema = new mongoose.Schema({
-    id: {unique : true , required: true},
+    id: {type : Number , unique : true, required: true},
     name : String,
     age : {type :Number, min: 18, max:101}
 })
@@ -29,6 +29,7 @@ const mango = new summer({
     rating: 9
 })
 const person2 = new people({
+    id: 1,
     name : "John Cena",
     age : 44
 })
@@ -50,6 +51,7 @@ const gindawar = new winter({
 
 // to save or add records to the collection we use .save
 // apple.save()
+
 // mango.save()
 
 // to insert many we use the model : Fruits.insertMany([apple, orange, banna], function(err, data){})
@@ -62,6 +64,8 @@ async function winterFruits(criteria= {}, projection = {}){
     winfruits.forEach((data)=>{
         console.log(data.name , "rating : ", data.rating)
     })
+    mongoose.disconnect()
+
 }catch (err) {
     console.log("error found ",err)
 }
@@ -73,6 +77,8 @@ async function findPeople(){
         allpeople.forEach(function(data){
             console.log(data.name)
         })
+        mongoose.disconnect()
+
     }catch(err){
         console.log("error found: "), err;
     }
@@ -94,4 +100,4 @@ async function summerFruits(){
 
 // winterFruits()
 // findPeople()
-summerFruits()
+// summerFruits()
