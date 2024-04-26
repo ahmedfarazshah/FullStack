@@ -27,31 +27,75 @@ const code = new items ({
     name : "Code"
 })
 
-const todoArray = [buyBooks, readBooks, code]
+const defaultItems = [buyBooks, readBooks, code]
+
+// console.log("itemscollecions :",itemsincollection)
+
+// You can't change the code to insert when you deploy on the web server 
 // items.insertMany(todoArray).then(()=>{console.log("items added to the database")}).catch(err=>{console.log("error inserting the values : ", err)})
+// inert
 
-
+// items.deleteMany({}).then(()=>{console.log("todo items records removed")})
 
 app.get("/", (req, res)=>{
+
     const day = date.getdate()    
-    res.render("list", {ListTitle: day})
+
+    items.find({}).then(data=>{
+       if(data.length === 0){
+        items.insertMany(defaultItems)
+
+        res.redirect("/")
+    }else{
+        res.render("list", {ListTitle: day, newlyListed : data})
+
+    }}).catch(err=>{console.log("error : ", err)})
 })
 
 app.post("/", (req,res)=>{
-    let newInput = req.body.whatTodo
-    if(req.body.button === "Work"){
-        workItems.push(newInput)
-        res.redirect("/work")
-    }else{
-        items.push(newInput)
-        res.redirect("/")
-        // console.log(req.body.button) // This showed us the value of the button that was pressed on which page using the template
-    }
+
+    const inputItem = req.body.whatTodo
+
+    const newItem = new items({
+        name : inputItem
+    })
+    newItem.save()
+    res.redirect('/')
+
+
+    ////////////////////////////
+    // no need if you use mongoose
+    // let newInput = req.body.whatTodo
+    // if(req.body.button === "Work"){
+    //     workItems.push(newInput)
+    //     res.redirect("/work")
+    // }else{
+    //     items.push(newInput)
+    //     res.redirect("/")
+    //     // console.log(req.body.button) // This showed us the value of the button that was pressed on which page using the template
+    // }
 })
 
 
+app.post("/delete", (req, res)=>{
+
+    const todel = req.body.checkbox // this fetch the value of the checkbox marked
+    items.deleteOne({_id : todel}).then(()=>{console.log('deleted done')})
+    
+    
+    res.redirect("/")
+
+
+
+})
+
+
+
+
+
+
 app.get("/work", (req,res)=>{
-    res.render("list", {ListTitle : "Work", newlyListed: items.name})
+    res.render("list", {ListTitle : "Work", newlyListed: items})
 
 })
 
