@@ -15,16 +15,16 @@
                     <input type="checkbox" name="checkbox" value="<%=data._id%>" onchange="this.form.submit()">
                     <p><%= data.name %></p>
                 </div>
-
-           <%  }) %>
-
+                
+                <%  }) %>
+                
+                <input type="hidden" name="listname" value="<%= ListTitle %>">
 
 
        </form>
        
-        
-        
-        <!-- above is what i have made for the for looop  -->
+       
+       <!-- above is what i have made for the for looop  -->
         <!-- <% for(var i = 0; i < newlyListed.length; i++){ %>
             <div class="item">
                 <input type="checkbox" >
@@ -40,5 +40,11 @@
         <!-- <footer style="position: absolute; bottom: 10px;">Made in Gilgit</footer> -->
     </div>
 
-<%- include("footer"); %>
-
+    <!--  -->
+    <!-- the name and value atribute works mutually : name will be the name of the variable and the value will be the "value identified "  -->
+    <!--  -->
+    
+    
+    <%- include("footer"); %>
+    
+    

@@ -17,19 +17,28 @@ const itemSchema = mongoose.Schema({
 
 const items = mongoose.model("todoItem", itemSchema)
 
-const buyBooks = new items ({
-    name : "Buy Some Books"
+const item1 = new items ({
+    name : "Welcome to the todo list"
 })
-const readBooks = new items ({
-    name : "Read the Books"
+const item2 = new items ({
+    name : "You can add or remove"
 })
-const code = new items ({
-    name : "Code"
+const item3 = new items ({
+    name : "<-- hit this to Remove items"
 })
 
-const defaultItems = [buyBooks, readBooks, code]
+const defaultItems = [item1, item2, item3]
 
-// console.log("itemscollecions :",itemsincollection)
+///////////////////////////
+// list for custom list entry
+
+const customListSchema = mongoose.Schema({
+    name : String,
+    items : [itemSchema]
+})
+
+const customlist = mongoose.model("custom_list", customListSchema)
+
 
 // You can't change the code to insert when you deploy on the web server 
 // items.insertMany(todoArray).then(()=>{console.log("items added to the database")}).catch(err=>{console.log("error inserting the values : ", err)})
@@ -37,20 +46,20 @@ const defaultItems = [buyBooks, readBooks, code]
 
 // items.deleteMany({}).then(()=>{console.log("todo items records removed")})
 
+/////////////////////////////////////////////////
+
+
+
 app.get("/", (req, res)=>{
-
-    const day = date.getdate()    
-
     items.find({}).then(data=>{
        if(data.length === 0){
-        items.insertMany(defaultItems)
-
+        items.insertMany(defaultItems)   
         res.redirect("/")
     }else{
-        res.render("list", {ListTitle: day, newlyListed : data})
+        res.render("list", {ListTitle: "Today", newlyListed : data})
 
-    }}).catch(err=>{console.log("error : ", err)})
-})
+    }}).catch(err=>{console.log("error : ", err)})    
+})    
 
 app.post("/", (req,res)=>{
 
@@ -58,50 +67,97 @@ app.post("/", (req,res)=>{
 
     const newItem = new items({
         name : inputItem
-    })
-    newItem.save()
-    res.redirect('/')
+    })    
+
+    const buttonlist = req.body.button
 
 
-    ////////////////////////////
-    // no need if you use mongoose
-    // let newInput = req.body.whatTodo
-    // if(req.body.button === "Work"){
-    //     workItems.push(newInput)
-    //     res.redirect("/work")
-    // }else{
-    //     items.push(newInput)
-    //     res.redirect("/")
-    //     // console.log(req.body.button) // This showed us the value of the button that was pressed on which page using the template
-    // }
-})
+    if(buttonlist === "Today"){
+        newItem.save()
+        res.redirect('/')
+    }else{
+        customlist.findOne({name: buttonlist}).then( foundlist =>{
+                foundlist.items.push(newItem)
+                foundlist.save() //this will update the data
+                res.redirect("/"+ foundlist.name)
+        }).catch(err=>{console.log(err)})
+
+
+
+    }
+
+
+})    
 
 
 app.post("/delete", (req, res)=>{
 
     const todel = req.body.checkbox // this fetch the value of the checkbox marked
-    items.deleteOne({_id : todel}).then(()=>{console.log('deleted done')})
+    const listname = req.body.listname 
     
     
-    res.redirect("/")
-
-
-
-})
-
-
-
-
-
-
-app.get("/work", (req,res)=>{
-    res.render("list", {ListTitle : "Work", newlyListed: items})
-
-})
+    if(listname === 'Today'){
+        items.deleteOne({_id : todel}).then(()=>{console.log('deleted done')})
+        res.redirect("/")
+    }else{
+        customlist.find({name : listname}).then(data =>{
+            data.items.forEach(items => {
+                if(items._id === todel){
+                    items._id.deleteOne()
+                }
+            });
+        })
+        
+    
+    
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+})    
 
 app.get("/about", (req,res)=>{
     res.render("about")
-})
+})    
+
+
+
+
+
+
+//////////////////////////////////
+// Dynamic Routes////////////////////////////////////////////
+app.get("/:dynamicList", (req, res)=>{
+    const custom_list_name = req.params.dynamicList
+
+    const list = new customlist({
+        name : custom_list_name,
+        items : defaultItems
+    })    
+
+    
+    customlist.findOne({ name: custom_list_name })
+    .then(foundLists => { // returns an array
+
+      if (!foundLists) {
+        // Create a new list
+        list.save()
+        res.redirect("/"+ custom_list_name)
+    } else {
+        res.render("list", {ListTitle: foundLists.name, newlyListed : foundLists.items})
+      }
+    })
+    .catch(err => {
+      console.log('error found : ', err)
+    });
+
+})    
+
 
 
 
@@ -109,7 +165,7 @@ app.get("/about", (req,res)=>{
 
 app.listen(3333 , function(){
     console.log("the server is running at port 3333")
-})
+})    
 
 
 
