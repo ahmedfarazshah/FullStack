@@ -1,7 +1,8 @@
 const express = require("express")
 const bodyParser = require("body-parser")
 const mongoose = require("mongoose")
-const date = require(__dirname + "/date.js")
+const _ = require("lodash")
+// const date = require(__dirname + "/date.js")
 
 const app = express()
 
@@ -95,21 +96,14 @@ app.post("/delete", (req, res)=>{
     const todel = req.body.checkbox // this fetch the value of the checkbox marked
     const listname = req.body.listname 
     
-    
     if(listname === 'Today'){
         items.deleteOne({_id : todel}).then(()=>{console.log('deleted done')})
         res.redirect("/")
     }else{
-        customlist.find({name : listname}).then(data =>{
-            data.items.forEach(items => {
-                if(items._id === todel){
-                    items._id.deleteOne()
-                }
-            });
-        })
-        
-    
-    
+        customlist.findOneAndUpdate({name : listname}, {$pull : {items: {_id: todel}}}).then(console.log("item deleted")).catch(err=>{console.log("err", err)})
+        res.redirect("/"+ listname)
+        // $pull is a mongo db shortcut that will search through an array and will remove the item 
+
     }
     
     
@@ -133,13 +127,17 @@ app.get("/about", (req,res)=>{
 //////////////////////////////////
 // Dynamic Routes////////////////////////////////////////////
 app.get("/:dynamicList", (req, res)=>{
-    const custom_list_name = req.params.dynamicList
-
+    const custom_list_name =(req.params.dynamicList)
+    
+    if (!custom_list_name) {
+        res.redirect("/"); // Redirect to the home route to avoid empty list creation
+        return;
+    }
+    
     const list = new customlist({
-        name : custom_list_name,
-        items : defaultItems
+            name : custom_list_name,
+            items : defaultItems
     })    
-
     
     customlist.findOne({ name: custom_list_name })
     .then(foundLists => { // returns an array
@@ -155,29 +153,11 @@ app.get("/:dynamicList", (req, res)=>{
     .catch(err => {
       console.log('error found : ', err)
     });
-
+    
 })    
-
-
-
-
 
 
 app.listen(3333 , function(){
     console.log("the server is running at port 3333")
 })    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
