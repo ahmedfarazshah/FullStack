@@ -159,7 +159,8 @@ app.get("/:dynamicList", (req, res)=>{
 })    
 
 
-app.listen(3333 , function(){
+const port = process.env.PORT
+app.listen(port || 3333 , function(){
     console.log("the server is running at port 3333")
 })    
 
