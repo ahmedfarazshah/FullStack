@@ -2,9 +2,8 @@ const express = require("express")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const ejs = require("ejs")
-const { title } = require("process")
-const { stringify } = require("querystring")
 const { STATUS_CODES } = require("http")
+const { title } = require("process")
 
 const app = express()
 
@@ -63,7 +62,7 @@ app.route("/articles")
 });
 
 /////////////////////////////////////
-// for a specific record
+// for a specific record /////////////////////////////////////////////////
 
 app.route("/articles/:articleTitle")
 
@@ -78,17 +77,48 @@ app.route("/articles/:articleTitle")
         }}).catch((err)=>{
             res.send(err)})
 })
-.delete()
 
 
 
 
-app.put((req,res)=>{
-////////////// {new: true}if not added in the find one and updade or any update    it returns the original document before the update.
+.put((req,res)=>{
+    const requestedTitle= req.params.articleTitle
+    ////////////// {new: true}if not added in the find one and updade or any update    it returns the original document before the update.
+    articles.updateOne({title : requestedTitle}, {title : req.body.title, content: req.body.content}, {new : true}).then(data=>{
+        res.send(data)
+    }).catch(err =>{
+        console.log(err)
+        res.send(err)
+    })
 
-    articles.updateOne({title : req.params.articleTitle}, {title : "req.body.title", content: req.body.content}, {new : true}).then(data=>{res.send(data)})
+        // patch is guess no longer required as {overwrite is depricated in the new version of mongoose}
+})
 
-    
+
+
+.patch((req, res)=>{
+    // patch is nolonger required as of my perspective because the $set is already / defaulty used in the put method 
+
+    // req.body = {
+    //     title : "something",
+    //     content : "something too"
+    // } //////////////////////////////////////////// this object was just to demonstrate you that set a object requested by the client
+
+
+    articles.updateOne({title : req.params.articleTitle}, {$set : req.body}, {new: true}).then(data=>{
+        res.send(data)
+    }).catch(err=>{
+        res.send(err)
+    })
+
+
+})
+
+
+
+
+.delete((req, res)=>{
+    articles.deleteOne({title : req.params.articleTitle}).then(res.send("deleted")).catch(err =>{res.send(err)})
 });
 
 
