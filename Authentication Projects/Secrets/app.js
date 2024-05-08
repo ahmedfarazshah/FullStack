@@ -4,8 +4,8 @@ require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
-const encrypt = require("mongoose-encryption")
-
+// const encrypt = require("mongoose-encryption") // instead of it hashing is used
+const md5 = require("md5")
 const app = express()
 
 app.use(express.static("public"))
@@ -20,8 +20,8 @@ const userSchema = new mongoose.Schema({
     password : String
 })
 
-userSchema.plugin(encrypt, {secret : process.env.SECRETS, encryptedFields:["password"] }) // a plugin adds features to a programme
-//thus added a security level in database hidding the password
+// userSchema.plugin(encrypt, {secret : process.env.SECRETS, encryptedFields:["password"] }) /// a plugin adds features to a programme
+//thus added a security level in database hidding the password // this will no longer be required as we will use hashing function(md5)
 const Users = mongoose.model("user", userSchema)
 
 
@@ -43,7 +43,7 @@ app.get("/register", (req, res)=>{
 
 app.post("/register", (req, res)=>{
     const username = req.body.username
-    const pass = req.body.password
+    const pass = md5(req.body.password)
 
     const newUser = new Users({
         email : username, 
@@ -54,18 +54,14 @@ app.post("/register", (req, res)=>{
 
 app.post("/login",(req, res)=>{ 
     const username = req.body.username
-    const pass = req.body.password
+    const pass = md5(req.body.password)
 
     Users.findOne({email : username}).then(data =>{
         if(data.password === pass){
             res.render("secrets")
         }
-    }).catch(err=>{res.send(err)})
+    }).catch(()=>{res.send("not found")})
 })
-
-
-
-
 
 
 /////////////////////////////////////////////////////////// Server Setup ///////////////////////////////////////////////////////
