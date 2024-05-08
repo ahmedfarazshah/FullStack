@@ -1,8 +1,10 @@
 // const ejs = require("ejs") // this is also no longer required but you have to install it in dependencies
 // const bodyParser = require("body-parser") // no longer required as not it comes with the express newer versions 
+require("dotenv").config()
 
 const express = require("express")
 const mongoose = require("mongoose")
+const encrypt = require("mongoose-encryption")
 
 const app = express()
 
@@ -13,11 +15,13 @@ app.set('view engine', 'ejs')
 //////////////////////////////////////////////// Database setup ///////////////////////////
 mongoose.connect("mongodb://localhost:27017/userDB")
 
-const userSchema = mongoose.Schema({
+const userSchema = new mongoose.Schema({
     email : String,
     password : String
 })
 
+userSchema.plugin(encrypt, {secret : process.env.SECRETS, encryptedFields:["password"] }) // a plugin adds features to a programme
+//thus added a security level in database hidding the password
 const Users = mongoose.model("user", userSchema)
 
 
