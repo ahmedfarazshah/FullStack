@@ -1,11 +1,14 @@
 // const ejs = require("ejs") // this is also no longer required but you have to install it in dependencies
 // const bodyParser = require("body-parser") // no longer required as not it comes with the express newer versions 
-require("dotenv").config()
+// const encrypt = require("mongoose-encryption") // instead of it hashing is used
+// const md5 = require("md5")
 
+require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose")
-// const encrypt = require("mongoose-encryption") // instead of it hashing is used
-const md5 = require("md5")
+const bcrypt = require("bcrypt")
+const saltRounds = 10
+
 const app = express()
 
 app.use(express.static("public"))
@@ -22,6 +25,7 @@ const userSchema = new mongoose.Schema({
 
 // userSchema.plugin(encrypt, {secret : process.env.SECRETS, encryptedFields:["password"] }) /// a plugin adds features to a programme
 //thus added a security level in database hidding the password // this will no longer be required as we will use hashing function(md5)
+
 const Users = mongoose.model("user", userSchema)
 
 
@@ -43,26 +47,33 @@ app.get("/register", (req, res)=>{
 
 app.post("/register", (req, res)=>{
     const username = req.body.username
-    const pass = md5(req.body.password)
+    const pass = (req.body.password)
+    // const pass = md5(req.body.password) // now using bcrypt for security purposes
 
-    const newUser = new Users({
-        email : username, 
-        password : pass
+    bcrypt.hash(pass, saltRounds).then(hash =>{
+        const newUser = new Users({
+            email : username, 
+            password : hash
+        })
+        newUser.save().then(()=>{res.render("secrets")}).catch(err=>{res.send(err)})
+     })
     })
-    newUser.save().then(()=>{res.render("secrets")}).catch(err=>{res.send(err)})
-})
+    
+    
 
 app.post("/login",(req, res)=>{ 
     const username = req.body.username
-    const pass = md5(req.body.password)
+    const pass = req.body.password
 
     Users.findOne({email : username}).then(data =>{
-        if(data.password === pass){
-            res.render("secrets")
-        }
-    }).catch(()=>{res.send("not found")})
+        bcrypt.compare(pass, data.password).then(hash=>{
+            if(hash === true){
+                res.render("secrets")
+            }
+        }).catch(err=>{res.send(err)});
+    })
+    .catch((err)=>{res.send(err)})
 })
-
 
 /////////////////////////////////////////////////////////// Server Setup ///////////////////////////////////////////////////////
 
