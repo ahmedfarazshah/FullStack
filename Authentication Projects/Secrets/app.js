@@ -6,6 +6,7 @@ const mongoose = require("mongoose")
 const passport = require("passport")
 const passportLocalMongoose = require("passport-local-mongoose")
 const session = require("express-session")
+const { resolveInclude } = require("ejs")
 
 
 const app = express()
@@ -14,12 +15,12 @@ app.use(express.static("public"))
 app.use(express.urlencoded({extended : true}))
 app.set('view engine', 'ejs')
 
-app.set('trust proxy', 1) // trust first proxy
+// app.set('trust proxy', 1) // trust first proxy
 app.use(session({
   secret: 'our little secret. ',
   resave: false,
-  saveUninitialized:false,
-  cookie: { secure: true }
+  saveUninitialized:false
+//   cookie: { secure: true } ///////////// this is for https secure
 }))
 
 app.use(passport.initialize())
@@ -58,21 +59,55 @@ app.get("/register", (req, res)=>{
     res.render("register")
 })
 
+app.get("/secrets", (req, res)=>{
+    if(req.isAuthenticated()){
+        res.render("secrets")
+    }else{
+        res.redirect("/login")
+    }
+})
+
+app.get("/logout", (req, res)=>{
+    req.logOut(err =>{
+        if(err){console.log(err)}
+        res.redirect("/")
+    })
+})
+
 ///////////////////////////////////////////////////// Post Verbs (REST) ///////////////////////////////////////
 
 app.post("/register", (req, res)=>{
-
-
-
-
+    
+    Users.register({username : req.body.username}, req.body.password, (err, user)=>{
+        if(err){
+            console.log(err)
+            res.redirect("/register")
+        }else{
+            passport.authenticate("local")(req, res, function(){ //local and req, res:  is a stratigy(plugin)  and cookie is made
+                res.redirect("/secrets")
+            })
+        }
+    })
 })
+
 
 app.post("/login",(req, res)=>{ 
 
 
+    const user = new Users({
+        username: req.body.username,
+        password: req.body.password 
+    })
 
 
-
+    req.login(user, err=>{
+        if(err){console.log(err)}
+        else{
+            passport.authenticate('local')(req, res, ()=>{
+                res.redirect("/secrets")
+            })
+        }
+    })
 
 
 })
