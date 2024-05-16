@@ -1,33 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from "./header.jsx"
+import "./app.css" // this is another aproach for styling in react
 
-function App() {
-  const [count, setCount] = useState(0)
+function App(){
 
-  return (
+  const luckyNumbet = 3
+  const date = new Date
+  const imagesSize = { // for inline css in React
+    width : "100px",
+    height : "100px"
+  }
+
+  const imagex = "https://picsum.photos/200"
+  return( // this only takes on one input
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      
+      <h1>Hello World</h1>
+       <Header/>
+      <ul>
+        <li>what do you think</li>  
+        <li>Year : {date.getFullYear()}</li>  
+        <li>Random Number {Math.floor(Math.random()*10)}</li>  
+        <li>my lucky number is {luckyNumbet}</li>  
+      </ul>    
+
+
+      <div className="imagesContainer">
+        <h1>UI Frameworks</h1>
+        <img src="https://images.surferseo.art/69731114-1f60-4e32-b617-1529c4686e30.png" alt="React logo" />
+        <img style={imagesSize} src={imagex + "?grayscale"} alt="Random image" />
+        <img src="https://blog.getbootstrap.com/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap logo" />
+
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
+
     </>
   )
 }
