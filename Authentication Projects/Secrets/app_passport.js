@@ -1,3 +1,6 @@
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////// This project is made using only passport local startigy not any oauth or third party 
+
 require("dotenv").config()
 const express = require("express")
 const mongoose = require("mongoose")
