@@ -1,5 +1,6 @@
 import Header from "./header.jsx"
 import "./app.css" // this is another aproach for styling in react
+import Greet from "./greetings.jsx"
 
 function App(){
 
@@ -11,7 +12,7 @@ function App(){
   }
 
   const imagex = "https://picsum.photos/200"
-  return( // this only takes on one input
+  return( 
     <>
       
       <h1>Hello World</h1>
@@ -23,17 +24,14 @@ function App(){
         <li>my lucky number is {luckyNumbet}</li>  
       </ul>    
 
-
       <div className="imagesContainer">
         <h1>UI Frameworks</h1>
         <img src="https://images.surferseo.art/69731114-1f60-4e32-b617-1529c4686e30.png" alt="React logo" />
         <img style={imagesSize} src={imagex + "?grayscale"} alt="Random image" />
         <img src="https://blog.getbootstrap.com/assets/brand/bootstrap-logo-shadow.png" alt="Bootstrap logo" />
-
-
-      </div>
-
-
+        </div>
+      <h1>greet import</h1>
+      <Greet/>
     </>
   )
 }
