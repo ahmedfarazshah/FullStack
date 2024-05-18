@@ -5,6 +5,9 @@
 }
 
 .header {
-    font-size: 18px;
-    background-color: hsl(240, 87%, 34%);
+    font-size: 36px;
+    color: hsla(240, 93%, 89%, 0.806);
+}
+.hyper{
+    background-color: white;
 }
