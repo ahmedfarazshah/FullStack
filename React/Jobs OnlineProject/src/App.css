@@ -21,3 +21,13 @@
   height: 100px;
   border-radius: 50px;
 }
+
+.stuCard{
+  border: 2px solid hwb(0 80% 20% / 0.576);
+  width: 300px;
+  margin: 5px;
+  display: inline-block;
+  box-shadow: 0 0 15px black;
+  border-radius: 20px;
+  padding: 5px;
+}

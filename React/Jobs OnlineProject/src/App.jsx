@@ -1,5 +1,5 @@
 import "./App.css"
-import Card from "./card"
+import Card,{Student} from "./card"
 
 function App(){
 
@@ -10,11 +10,11 @@ function App(){
       <h1>Hello World</h1>
       <Card></Card>
       <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-      <Card/>
-
+     <Card/>
+    <br />
+      <Student name="brocode" age={33} isStudent={true}/>
+      <Student name="brocode" age="lk" isStudent={true}/>
+      <Student />
     </>
 
 

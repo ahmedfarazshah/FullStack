@@ -1,3 +1,4 @@
+import  Avatar ,{ Details } from "./avatar"
 function Note(){
 
 
@@ -21,11 +22,10 @@ function Card(props){
         <div className="card">
             <div className="top">
                 <h3>{props.name}</h3>
-                <img src={props.img} alt="avatar icon" />
+                <Avatar img={props.img}/>
             </div>
             <div className="bottom">
-                <p>Country : {props.country}</p>
-                <p>Phone : {props.cellNo}</p>
+                <Details country={props.country} cellNo={props.cellNo}/>
             </div>
         </div>
 
