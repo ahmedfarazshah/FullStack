@@ -1,5 +1,5 @@
 import profilePicture from "./assets/ava.jpg"
-// import PropTypes from "../node_modules/prop-types" // this is not working there might be an error
+import PropTypes from "prop-types" // if something is present in the node modules then no need to specify the location
 
 function Card (){
 
@@ -33,11 +33,11 @@ function Student(props){
     )
 
 }
-// Student.propTypes = {
-//     name : PropTypes.string,
-//     age : PropTypes.number,
-//     isStudent : PropTypes.bool
-// }
+Student.propTypes = {
+    name : PropTypes.string,
+    age : PropTypes.number,
+    isStudent : PropTypes.bool
+}
 
 Student.defaultProps = {
     name : "Guest",

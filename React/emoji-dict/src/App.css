@@ -1,0 +1,19 @@
+body{
+    background-color: hsla(0, 3%, 82%, 0.301);
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400px;
+    margin: 0;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+.title h1{
+    background-color: hsla(159, 73%, 56%, 0.834);
+    margin: 0;
+    padding: 30px 60px;
+}
+

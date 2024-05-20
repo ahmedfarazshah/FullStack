@@ -1,0 +1,29 @@
+.dictonary{
+    background-color: white;
+    width: 320px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    margin: 44px;
+    pad: 7px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 7px hsla(0, 0%, 0%, 0.415);
+    float: left;
+}
+
+.dictonary dt{
+    font-size: 33px;
+
+}
+.dictonary dt:nth-child(2){
+    color:  hsla(159, 73%, 56%, 0.834);
+    font-weight: 500;
+    margin-top: -20px;
+}
+
+.dictonary dd{
+    margin: 10px;
+}

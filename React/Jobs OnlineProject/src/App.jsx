@@ -13,7 +13,8 @@ function App(){
      <Card/>
     <br />
       <Student name="brocode" age={33} isStudent={true}/>
-      <Student name="brocode" age="lk" isStudent={true}/>
+      <Student name="brocode" age={888} isStudent={true}/>
+      {/* <Student name={2344} /> this shows error of invalid type */}
       <Student />
     </>
 
