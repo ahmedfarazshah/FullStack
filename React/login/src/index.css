@@ -1,0 +1,10 @@
+body{
+  background-color: #469a97;
+  font-family: "Ysabeau Office", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 88dvh;
+}

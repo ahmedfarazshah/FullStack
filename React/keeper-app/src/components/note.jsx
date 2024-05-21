@@ -1,13 +1,12 @@
 import  Avatar ,{ Details } from "./avatar"
-function Note(){
 
 
-
+function NoteCard(props){
     return(
         <>
             <div className="note">
-                <h3>This is a note Title</h3>
-                <p>This is a note Content</p>
+                <h3>{props.title}</h3>
+                <p>{props.content}</p>
 
             </div>
         
@@ -32,6 +31,6 @@ function Card(props){
     )
 }
 
-export default Note
+export default NoteCard
 
 export {Card}
