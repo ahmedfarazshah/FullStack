@@ -4,7 +4,7 @@ import Card from "./Components/card"
 
 function createCard(emojx){
   return (
-    <Card emoji={emojx.emoji} name={emojx.name} meaning={emojx.meaning}/>
+    <Card key={emojx.id} emoji={emojx.emoji} name={emojx.name} meaning={emojx.meaning}/>
   )
 }
 
@@ -18,8 +18,8 @@ function App() {
       </div>
 
       {emoji.map(createCard)}
-      {emoji.map(modi =>(
-          <Card emoji={modi.emoji} name={modi.name} meaning={modi.meaning}/>
+      {emoji.map(modi =>( ///no return and {} required because it is one line of code
+          <Card key={modi.id} emoji={modi.emoji} name={modi.name} meaning={modi.meaning}/>
       ))};
     </>
   )
