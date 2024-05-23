@@ -1,0 +1,21 @@
+body{
+    background-color: #d0e0e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 96dvh;
+
+}
+
+table {
+    text-align: center;
+    border-collapse: collapse;
+    display: inline-block;
+    margin: 5px;
+} 
+td, th{
+    padding: 10px;
+    border: 1px solid black;
+
+}
