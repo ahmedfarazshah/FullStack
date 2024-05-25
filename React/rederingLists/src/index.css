@@ -31,3 +31,26 @@ ol{
   color: hsla(0, 0%, 28%, 0.718);
   cursor: pointer;
 }
+
+
+.containerHandler {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 2px solid black;
+  width: max-content;
+}
+
+.containerHandler button,h2 {
+  background-color: aqua;
+  text-decoration: none;
+  border: none;
+  margin: 5px;
+  font-size: 16px;
+  padding:05px  20px;
+}
+.containerHandler button:hover{
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.515);
+}
