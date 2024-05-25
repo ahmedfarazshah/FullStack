@@ -1,0 +1,33 @@
+body{
+  background-color: #bed2d8;
+}
+
+.cont{
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  float: inline-start;
+  margin: 20px;
+  width: 180px;
+}
+
+.cont h2{
+  background-color: hsl(158, 85%, 32%);
+  width: 100%;
+  text-align: center;
+  color: white;
+  margin: 22px 0 0 0;
+  border: 2px black solid;
+}
+ol{
+  list-style: none;
+  padding: 0;
+  text-align: center  ;
+
+}
+.cont ol li:hover {
+  color: hsla(0, 0%, 28%, 0.718);
+  cursor: pointer;
+}
