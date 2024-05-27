@@ -1,0 +1,25 @@
+.color-picker-container{
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 250px; 
+}
+.color-picker-box{
+    border: 1px solid hsl(0, 48%, 45%);
+    width: 200px;
+    height: 200px;
+    text-align: center;
+    transition: 500ms ease;
+}
+
+ label{
+    margin: 10px 0;
+}
+
+input[type=color]{
+    width: 80px;
+    border: none;
+    height: 40px;
+    padding: 7px;
+}
