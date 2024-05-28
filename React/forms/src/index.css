@@ -23,3 +23,75 @@ input[type=color]{
     height: 40px;
     padding: 7px;
 }
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #469a97;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.main{
+    width: 99.5%;
+    margin: 0;
+    pad: 0;
+    height: 99dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.complexContainer{
+    width: 400px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.complexContainer input{
+    margin: 2px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.164);
+    border: 1px solid rgba(255, 255, 255, 0.348);
+    text-align: center;
+    outline: none;
+}
+.complexContainer button{
+    margin: 5px;
+    height: 30px;
+    width: 184px;
+    border: none;
+}
+.complexContainer input:hover{
+    background-color: rgba(255, 255, 255, 0.464);
+    transition: 200ms ease-in;
+
+}
+.complexContainer button:hover{
+    background-color: black;
+    transition: 400ms ease-in-out;
+    color: white;
+    cursor: pointer;
+}
+
+.languages{
+    margin: 30px;
+}
+.languages button{
+    margin: 0 3px;
+    background-color: transparent;
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.385);
+    cursor: pointer;
+    height: 21px;
+
+}
+.languages button:hover{
+    background-color: rgba(255, 255, 255, 0.158);
+}
+.languages input{
+    margin: 10px 0;
+    outline: none;
+}
