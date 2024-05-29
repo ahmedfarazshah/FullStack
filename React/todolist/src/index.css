@@ -1,0 +1,65 @@
+body{
+  font-family: cursive;
+  background-color: #222831;
+  display: flex;
+  justify-content: center;
+}
+
+
+.todolistContainer {
+  width: 400px;
+  border-radius: 8px;
+  background: url(./assets/wLSu3.png);
+  box-shadow: 0 0 13px rgb(0, 0, 0);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.todolistContainer h2{
+  margin-top: 50px;
+  background-color: hsla(0, 0%, 0%, 0.468);
+  color: white;
+  width: 140px;
+  padding: 15px;
+  border-radius: 10px;
+  
+  text-align: center;  
+}
+
+.todolistContainer .inpBut{
+  margin: 10px;
+}
+.inpBut input{
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-align: center;
+  font-size: 15px;
+  border-bottom: 2px dotted yellow;
+  height: 30px;
+  color: white;
+}
+.inpBut button{
+  background-color: transparent;
+  height: 30px;
+  border: 2px solid rgba(0, 0, 0, 0.358);
+  color: white;
+  outline: none;
+  border-radius: 4px;
+  margin-left: 10px;
+}
+.todolistContainer ul{
+  width: 70%;
+  color: whitesmoke;
+  margin: 23px 0;
+}
+li{
+  margin: 10px 0;
+}
+li:hover , button:hover{
+  background-color: transparent;
+  cursor: pointer;
+  font-size: larger;
+  transition: 200ms ease-in-out;
+}

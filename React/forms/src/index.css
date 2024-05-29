@@ -25,7 +25,7 @@ input[type=color]{
 }
 
 body{
-    margin: 0;
+    /* margin: 0; */
     padding: 0;
     background-color: #469a97;
     font-family: Arial, Helvetica, sans-serif;

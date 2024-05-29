@@ -2,29 +2,35 @@ import { useState } from "react";
 
 function App(){
 
-    const [car, setName] = useState({
-        car: "",
+    const [name, setName] = useState({
+        fName: "",
         lName: ""
     })
 
     function namehandler(e){
 
         const {value , name }= e.target
-        
-        setName((previous)=>{
-            if(name === "fName"){
-                return{
-                    fName : value,
-                    lName : previous.lName
-                } 
 
-            }else if(name === "lName"){ 
-                return{  
-                    fName : previous.fName,
-                    lName : value
-            }
-            }
-        })
+        setName(n=> ({...n, [name]:value})) //in an object if you want to excess a variable you need to use [   ]
+
+
+
+
+        //THIS WAS OLD METHOD : NOW USING SPREAD OPERATOR AND VARIABLE AS KEY
+        // setName((previous)=>{
+        //     if(name === "fName"){
+        //         return{
+        //             fName : value,
+        //             lName : previous.lName
+        //         } 
+
+        //     }else if(name === "lName"){ 
+        //         return{  
+        //             fName : previous.fName,
+        //             lName : value
+        //     }
+        //     }
+        // })
     }
 
 
