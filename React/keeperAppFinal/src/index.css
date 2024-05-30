@@ -3,7 +3,7 @@
   padding: 0;
   background-color:hsla(132, 29%, 75%, 0.769);
   font-family :Georgia, 'Times New Roman', Times, serif;
-
+  background-image: url("https://www.transparenttextures.com/patterns/black-thread-light.png");
 }
 
 header{
@@ -24,3 +24,83 @@ header h2{
   padding: 0;
   margin: 0 30px;
 }
+
+.notebox{
+  border: 2px solid rgba(255, 255, 255, 0.394);
+  background-color: rgba(255, 255, 255, 0.189);
+  border-radius: 11px;
+  width: 450px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: relative;
+  left: 30%;
+  margin: 20px 0;
+  box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.278);
+}
+.notebox input{
+  padding: 8px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.644);
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 16px;
+
+}
+textarea{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  padding: 8px;
+
+}            
+
+
+.notebox button{
+  width: 40px;
+  height: 40px;
+  color: white;
+  background-color: #e0b929;
+  border: none;
+  outline: none;
+  position: relative;
+  top: 30px;
+  left: 400px;
+  border-radius: 200px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+}
+button:hover{
+  background-color: rgba(255, 255, 255, 0.813);
+  color: #e0b929;
+  transition: 200ms ease-in-out;
+}
+
+.mainNotes{
+  width: 270px;
+  background-color: hsla(0, 0%, 90%, 0.587);
+  border-radius: 8px;
+  box-shadow: 0 0 10px hsl(0, 0%, 80%)  ;
+  padding: 10px;
+  display: inline-block;
+  margin: 20px;
+
+
+}
+.mainNotes h2,p{
+  margin: 12px;
+
+}
+.mainNotes button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    left: 200px;
+    color: #e0b929;
+  }

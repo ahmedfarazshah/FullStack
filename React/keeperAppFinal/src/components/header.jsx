@@ -1,9 +1,11 @@
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+
 function Header(){
 
 
     return(
         <header>
-            <h2>Keeper</h2>
+            <h2><WbSunnyIcon/> Keeper</h2>
         </header>
 
     )
