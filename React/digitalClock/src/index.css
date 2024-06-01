@@ -1,0 +1,27 @@
+body{
+    background-image: url(/src/assets/dArt.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    width: 100dvw;
+}
+.clockContainer{
+    text-align: center;
+    backdrop-filter: blur(2px);
+    font-size: 2rem;
+    width: 100dvw;
+}
+h2{
+    color: hsl(186, 60%, 69%);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    text-shadow: 0 0 6px black;
+    box-shadow: 0 0 22px #ff58ff;
+}

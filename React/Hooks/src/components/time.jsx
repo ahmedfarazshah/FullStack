@@ -11,7 +11,7 @@ function App(){
     
     const [currentTime , settoCurrent] = useState(time)
 
-    function setTime (){
+    function setTime (){ // check the useEffect hook its functionality is similar check the clock application 
         let newtime = new Date().toLocaleTimeString()
             settoCurrent(newtime)
     }
