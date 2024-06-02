@@ -1,0 +1,72 @@
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+
+const Car = () => {
+  const carRef = useRef();
+  let scene, camera, renderer, controls;
+
+  useEffect(() => {
+    // Set up Three.js scene
+    const initScene = () => {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      carRef.current.appendChild(renderer.domElement);
+      controls = new OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      camera.position.set(0, 3, 10);
+      controls.update();
+    };
+
+    // Load the car model
+    const loadModel = () => {
+      const loader = new GLTFLoader();
+      loader.load(
+        '/path/to/car/model.gltf',
+        (gltf) => {
+          const carModel = gltf.scene;
+          scene.add(carModel);
+          animate();
+        },
+        undefined,
+        (error) => {
+          console.error('Error loading car model:', error);
+        }
+      );
+    };
+
+    // Animation loop
+    const animate = () => {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+      controls.update();
+    };
+
+    // Initialize the scene and load the model
+    initScene();
+    loadModel();
+
+    // Resize renderer when window size changes
+    const handleResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Clean up Three.js objects when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      scene.dispose();
+      renderer.dispose();
+      controls.dispose();
+    };
+  }, []);
+
+  return <div ref={carRef} style={{ width: '100%', height: '100%' }} />;
+};
+
+export default Car;
